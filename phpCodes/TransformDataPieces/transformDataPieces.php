@@ -21,7 +21,9 @@ class TransformDataPieces
 
     /**
      * Name: transfer
-     * Desc: 把linux的crontab中用于定时的配置转换为相应的时间散列值
+     * Desc:
+     *      把linux的crontab中用于定时的配置转换为相应的时间散列值
+     *      这段代码来源于俄罗斯大熊弟的代码:https://github.com/DenisOgr/yii2-cronjobs
      * @param
      * @param array $parameters
      * @return array
@@ -37,13 +39,17 @@ class TransformDataPieces
         );
         foreach ($parameters AS $n => &$repeat) {
             list($repeat, $every) = explode('/', $repeat, 2) + array(false, 1);
-            if ($repeat === '*') $repeat = range($dimensions[$n][0], $dimensions[$n][1]);
-            else {
+            if ($repeat === '*') {
+                $repeat = range($dimensions[$n][0], $dimensions[$n][1]);
+            } else {
                 $repeatPiece = array();
                 foreach (explode(',', $repeat) as $piece) {
                     $piece = explode('-', $piece, 2);
-                    if (count($piece) === 2) $repeatPiece = array_merge($repeatPiece, range($piece[0], $piece[1]));
-                    else                     $repeatPiece[] = $piece[0];
+                    if (count($piece) === 2) {
+                        $repeatPiece = array_merge($repeatPiece, range($piece[0], $piece[1]));
+                    } else {
+                        $repeatPiece[] = $piece[0];
+                    }
                 }
                 $repeat = $repeatPiece;
             }
