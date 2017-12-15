@@ -72,6 +72,9 @@ class MyFilter
 					$map = $nowMap;
 				}
 			} else {
+				if (!empty($str)) {
+					$i--;
+				}
 				$str = '';
 				$map = $tmp;
 			}
@@ -84,8 +87,9 @@ $example = new MyFilter();
 
 $example->addWordToMap('中国人');
 $example->addWordToMap('中国男人');
+$example->addWordToMap('女人');
 
 
-$result = $example->searchFromMap('我是中国人,我爱中国,中国男人发送到发送');
+$result = $example->searchFromMap('我是中国人,我爱中国,中国男人发送中国女人到发送');
 //var_dump($example->map);
 var_dump($result);
