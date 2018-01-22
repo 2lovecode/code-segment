@@ -6,13 +6,8 @@
 *
 * 简单工厂模式：创建对象的逻辑抽取出来，放到工厂中实现
 *
-* 优点：
-* 缺点：
-*
-*
-*
-*
-*
+* 在本示例中：客户类Test获取对象实例door的代码放到工厂类Factory中实现。
+* 带来的好处是，在我们需要添加door的类型时，不必更改Test类的代码，只需要在factory中添加即可。
 *
 */
 //对象类
@@ -56,13 +51,8 @@ class NilDoor extends Door
 	{}
 }
 
-//工厂类
-abstract class SimpleFactory
-{
-	abstract public function create($config = []); 
-}
 
-class DoorSimpleFactory extends SimpleFactory
+class SimpleFactory
 {
 	public function create($config = [])
 	{
@@ -82,10 +72,10 @@ class Test
 {
 	public function run()
 	{
-		$doorFactory = new DoorSimpleFactory();
+		$factory = new SimpleFactory();
 
-		$doorOne = $doorFactory->create(['Black']);
-		$doorTwo = $doorFactory->create(['White']);
+		$doorOne = $factory->create(['Black']);
+		$doorTwo = $factory->create(['White']);
 
 		$doorOne->open();
 		$doorOne->close();
