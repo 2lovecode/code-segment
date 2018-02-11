@@ -1,0 +1,1 @@
+use php implement common design pattern
