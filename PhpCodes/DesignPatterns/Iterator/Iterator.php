@@ -1,48 +1,84 @@
 <?php
-
 /*
-*	迭代器模式：定义一种方法顺序访问聚合对象，而又不暴露其内部实现
 *
-*	让客户遍历你的对象，而又无法得知内部数据的存储方式。
+*
+*	迭代器模式：提供顺序访问聚合对象中各个元素的方法，而又不暴露其内部的实现
+*	把遍历的任务放到迭代器上，而不是聚合对象上，简化了聚合的接口和实现，让责任各得其所
+*
+*
+*
+*	示例中，FirstAggregate是聚合对象，
+*	FirstIterator提供了遍历FirstAggregate中各个元素的方法。
+*
 */
-class MyIterator
+interface MyAggregate
 {
-	private $arrayList;
+	public function createIterator();
+}
+
+interface MyIterator
+{
+	public function hasNext();
+	public function next();
+	public function remove();
+}
+
+class FirstAggregate implements MyAggregate
+{
+	private $data;
+
+	public function __construct($data)
+	{
+		$this->data = $data;
+	}
+
+	public function createIterator()
+	{
+		return new FirstIterator($this->data);
+	}
+}
+
+
+class FirstIterator implements MyIterator
+{
+	private $aggregate;
 	private $position;
 
-	public function __construct($array)
+	public function __construct(array $aggregate = [])
 	{
-		$this->arrayList = $array;
+		$this->aggregate = $aggregate;
 		$this->position = 0;
 	}
 
 	public function hasNext()
 	{
-		return isset($this->arrayList[$this->position]);
+		return isset($this->aggregate[$this->position]);
 	}
 
 	public function next()
 	{
-		$value = $this->arrayList[$this->position];
-		$this->position = $this->position + 1;
-		return $value;
+		return $this->aggregate[$this->position++];
+	}
+
+	public function remove()
+	{
+		return;
 	}
 }
 
+
 class Test
 {
-	public function createIterator($arr1)
-	{
-		return new MyIterator($arr1);
-	}
 	public function run()
 	{
-		$arr1 = [1, 2, 3, 4, 5];
-		$iterator = $this->createIterator($arr1);
+		$data = [4, 2, 5, 1, 3];
 
-		while ($iterator->hasNext()){
+		$aggregate = new FirstAggregate($data);
+		$iterator = $aggregate->createIterator();
+
+		while ($iterator->hasNext()) {
 			var_dump($iterator->next());
-		} 
+		}
 	}
 }
 
