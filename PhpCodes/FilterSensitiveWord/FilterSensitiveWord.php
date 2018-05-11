@@ -4,6 +4,8 @@ header("Content-type:text/html; charset=utf-8");
 
 class MyMap
 {
+    public $isEnd = 0;
+
     private $keySpace = [];
 
 	public function get($key)
@@ -22,21 +24,6 @@ class MyMap
     }
 }
 
-class MyStack
-{
-    private $stack = [];
-
-    public function push($value)
-    {
-        array_push($this->stack, $value);
-    }
-
-    public function pop()
-    {
-        return empty($this->stack) ? null : array_pop($this->stack);
-    }
-}
-
 class MyFilter
 {
 	public $map = null;
@@ -46,7 +33,6 @@ class MyFilter
 		$len = mb_strlen($word);
 		if (is_null($this->map)) {
 			$map = new MyMap();
-			$map->put('isEnd', 0);
 		} else {
 			$map = $this->map;
 		}
@@ -61,13 +47,12 @@ class MyFilter
 				$map = $nowMap;
 			} else {
 				$newMap = new MyMap();
-				$newMap->put('isEnd', 0);
 				$map->put($nowWord, $newMap);
 				$map = $newMap;
 			}
 
 			if ($i == ($len - 1)) {
-				$map->put('isEnd', 1);
+				$map->isEnd = 1;
 			}
 		}
 		$this->map = $tmp;
@@ -87,7 +72,7 @@ class MyFilter
 
 			if (!is_null($nowMap)) {
 				$str .= $nowWord;
-				if ($nowMap->get('isEnd')) {
+				if ($nowMap->isEnd) {
                     if (!in_array($str, $result)) {
                         array_push($result, $str);
                     }
@@ -121,7 +106,7 @@ class MyFilter
 
             if (!is_null($nowMap)) {
                 $str .= $nowWord;
-                if ($nowMap->get('isEnd')) {
+                if ($nowMap->isEnd) {
                     if (!in_array($str, $result)) {
                         array_push($result, $str);
                     }
