@@ -205,9 +205,6 @@ class SensitiveWordTree
                                 $tree = $nowTree;
                             }
                         } else {
-                            if (!empty($tmpWord)) {
-                                $j--;
-                            }
                             $start = $j;
                             $tmpWord = '';
                             $tree = $tmpTree;
