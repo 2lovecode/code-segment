@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Class StdExample
+ * Class AttributesChangeLog
  *
  * 把类的新属性映射为属性params的键,静态变量$logs记录参数变化情况
  */
-class StdExample
+class AttributesChangeLog
 {
     public $params = [];
     /**
@@ -13,7 +13,7 @@ class StdExample
      *
      * 记录参数更改的文件,行数和值
      */
-    static public $logs = [];
+    public static $logs = [];
 
 
     public function __set($name, $value)
@@ -65,7 +65,6 @@ class StdExample
     /**
      * Name: hasFunc
      * Desc: 判断是否有闭包函数
-     * @param
      * @param $value
      * @return bool
      */
@@ -90,7 +89,6 @@ class StdExample
     /**
      * Name: transObject
      * Desc: 把对象转换为json
-     * @param
      * @param $value
      * @return bool|null|string
      */
@@ -115,7 +113,7 @@ class StdExample
 }
 
 
-$example = new StdExample();
+$example = new AttributesChangeLog();
 
 $example->value1 = 'aaa';
 

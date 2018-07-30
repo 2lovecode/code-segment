@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Class StrExample
+ * Class ReplaceStrTemplate
  *
  * 功能:
  *  将字符串模板中符合正则条件的占位符,替换为响应的变量值
  *
  *  在此例中,占位符是:###value###,其中value是变量名
  */
-class StrExample {
+class ReplaceStrTemplate {
     public $strTemplate = <<<EOT
     Hello ###value1### , I ###value2### You
 EOT;
@@ -41,6 +41,6 @@ EOT;
     }
 }
 
-$a = new StrExample();
+$a = new ReplaceStrTemplate();
 
 var_dump($a->repalceTemplate());

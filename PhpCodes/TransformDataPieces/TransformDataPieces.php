@@ -24,7 +24,6 @@ class TransformDataPieces
      * Desc:
      *      把linux的crontab中用于定时的配置转换为相应的时间散列值
      *      这段代码来源于俄罗斯大熊弟的代码:https://github.com/DenisOgr/yii2-cronjobs
-     * @param
      * @param array $parameters
      * @return array
      */
