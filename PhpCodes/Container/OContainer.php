@@ -695,7 +695,7 @@ class OContainer implements OContainerInterface
         return static::$instance;
     }
 
-    public static function setInstance(MyContainerInterface $container = null)
+    public static function setInstance(OContainerInterface $container = null)
     {
         return static::$instance = $container;
     }
