@@ -22,6 +22,9 @@ php操作目录和文件的一些示例
 #### PhpSyntaxTestCode
 一些php的语法的测试示例
 
+#### SimpleContainer
+DI容器简单实现
+
 #### SimpleDataBase
 php实现的一个简单的key-value数据库
 
