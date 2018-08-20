@@ -19,6 +19,9 @@ php操作目录和文件的一些示例
 #### FilterSensitiveWord
 敏感词过滤实现
 
+#### HyperLogLog
+模拟redis的HyperLogLog数据结构
+
 #### PhpSyntaxTestCode
 一些php的语法的测试示例
 
