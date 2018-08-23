@@ -50,12 +50,23 @@
     - TemplateMethod : 模板方法模式
   
   - FileOperation:php操作目录和文件的一些示例
+    - DirTranverse : 非递归方式实现目录数量统计
+    - ExcelColIncrease : excel列标识自增方法
+    - GenerateBigFile : 大文件生成
   
   - FilterSensitiveWord:敏感词过滤实现
+    - FilterSensitiveWord : 简单的基于DFA算法的敏感词过滤第一版 [博客地址](https://blog.csdn.net/aikiller/article/details/78797864)
+    - FilterSensitiveWord_2 : 简单的基于DFA算法的敏感词过滤第二版 [博客地址](https://blog.csdn.net/AIkiller/article/details/80287594)
   
   - HyperLogLog:模拟redis的HyperLogLog数据结构
   
   - PhpSyntaxTestCode:一些php的语法的测试示例
+    - TestData : 测试数据
+    - ThrowableTest : Throwable类测试
+    - ArrayReduce : array_reduce函数测试
+    - CloneSyntax : clone语法测试
+    - FileOperation : 文件操作测试
+    - GetFileLastNumRow : 或取文件最后一行代码测试
   
   - SimpleContainer:DI容器简单实现
   
@@ -67,4 +78,8 @@
 - PythonCodes : Python
 - ShellCodes : Shell脚本
   - AutoConfigLnmpWebSite : 自动配置lnmp环境站点
+  
+#### README 使用
+ - 最外层展示所有层的目录树状结构,描述较简略
+ - 各层目录下,只展示当前层包含的目录,描述较详细
 
