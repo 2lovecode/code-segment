@@ -1,4 +1,3 @@
 #### Go语言示例
 
-- Timer
-  - 定时器实现,以操作redis为例.
+- Timer : 基于redis zset list 实现的定时器.

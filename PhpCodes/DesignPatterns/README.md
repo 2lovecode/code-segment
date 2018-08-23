@@ -1,1 +1,14 @@
-use php implement common design pattern
+- Adapter : 适配器模式
+- Command : 命令模式
+- Composite : 组合模式
+- Decorator : 装饰者模式
+- Facade : 门面模式
+- Factory : 工厂模式
+- Iterator : 迭代器模式
+- Observer : 观察者模式
+- Pipeline : 管道模式
+- Proxy : 代理模式
+- SingleTon : 单例模式
+- State : 状态模式
+- Strategy : 策略模式
+- TemplateMethod : 模板方法模式
