@@ -22,6 +22,9 @@ php操作目录和文件的一些示例
 #### HyperLogLog
 模拟redis的HyperLogLog数据结构
 
+#### LaravelTest
+仿照Laravel框架中一些机制写的测试代码
+
 #### PhpSyntaxTestCode
 一些php的语法的测试示例
 

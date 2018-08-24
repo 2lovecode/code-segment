@@ -58,7 +58,10 @@
     - [x] [FilterSensitiveWord](PhpCodes/FilterSensitiveWord/FilterSensitiveWord.php) : 简单的基于DFA算法的敏感词过滤第一版 [博客地址](https://blog.csdn.net/aikiller/article/details/78797864)
     - [x] [FilterSensitiveWord_2](PhpCodes/FilterSensitiveWord/FilterSensitiveWord_2.php) : 简单的基于DFA算法的敏感词过滤第二版 [博客地址](https://blog.csdn.net/AIkiller/article/details/80287594)
   
-  - [x] [HyperLogLog](PhpCodes/HyperLogLog):模拟redis的HyperLogLog数据结构
+  - [x] [HyperLogLog](PhpCodes/HyperLogLog) : 模拟redis的HyperLogLog数据结构
+  
+  - [x] [LaravelTest](PhpCodes/LaravelTest) : 依据Laravel框架中一些机制的实现原理,写的一些实现demo
+    - [x] [MiddleWare](/PhpCodes/LaravelTest/MiddleWare) : 依据MiddleWare的实现原理,实现的一个简单demo
   
   - [x] [PhpSyntaxTestCode](PhpCodes/PhpSyntaxTestCode):一些php的语法的测试示例
     - [x] [TestData](PhpCodes/PhpSyntaxTestCode/TestData) : 测试数据
