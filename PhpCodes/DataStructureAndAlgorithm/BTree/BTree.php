@@ -6,69 +6,61 @@
  * @copyright liu hao<liu546hao@163.com>
  */
 
-class ValueObject
+class Node
 {
-    private $index;
-    private $value;
+    public $index;
+    public $value;
 
-    public function __construct($value)
+    public function setValue($value)
     {
         $this->value = $value;
         $this->index = $value['index'];
-    }
 
-    public function getIndex()
-    {
         return $this->index;
-    }
-
-    public function getValue()
-    {
-        return $this->value;
     }
 }
 
 class TreeNode
 {
-    public $parentNode = null;
+    public $parent = null;
+
+    public $nodeList = [];
+
+    public $indexList = [];
 
     public $children = [];
 
-    private $maxValueNum = 3;
+    public $nodeNum = 0;
 
-    private $currentValueNum = 0;
-
-    private $maxChildNum = 3;
-
-    private $currentChildNum = 0;
-
-    private $valueMap = [];
-
-    public function __construct($max = 3)
+    public function __construct($order = 3)
     {
-        $this->maxValueNum = $max;
-        $this->maxChildNum = $max;
+        for ($i = 0; $i < ($order - 1); $i++) {
+            $this->indexList[$i] = 0;
+            $this->nodeList[$i] = null;
+        }
+        for ($i = 0; $i < $order; $i++) {
+            $this->children[$i] = null;
+        }
     }
 
-    public function addValue($value)
+    public function setValue($value)
     {
-        $valueObject = new ValueObject($value);
-        $this->valueMap[$valueObject->getIndex()] = $valueObject;
-        ksort($this->valueMap);
-        $this->currentValueNum++;
+        $node = new Node();
+        $index = $node->setValue($value);
+        array_push($this->indexList, $index);
+        $this->nodeList[$index] = $node;
+        sort($this->indexList);
+        $this->nodeNum = count($this->indexList);
     }
-
-    public function addChild($value)
-    {
-
-    }
-
 }
 
 
 
 class BTree
 {
+    /**
+     * @var TreeNode
+     */
     public $rootNode = null;
 
     public $order = 3;
@@ -81,14 +73,19 @@ class BTree
     public function insert($value)
     {
         if ($this->isEmpty()) {
-            $node = new TreeNode($this->order);
-            $node->addValue($value);
-            $this->rootNode = $node;
+            $newNode = new TreeNode($this->order);
+            $newNode->setValue($value);
+            $this->rootNode = $newNode;
         } else {
-            $current = $this->find($value['index']);
-            $current->addValue($value);
-
-
+            $nowNode = $this->rootNode;
+            $index = $value['index'];
+            while ($nowNode != null) {
+                foreach ($nowNode->indexList as $value) {
+                    if ($index < $value) {
+                        
+                    }
+                }
+            }
         }
     }
 
@@ -100,6 +97,7 @@ class BTree
     {
         if ($this->isEmpty()) {
             return null;
+        } else {
         }
     }
 
