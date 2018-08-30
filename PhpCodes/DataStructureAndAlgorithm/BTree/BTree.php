@@ -6,62 +6,99 @@
  * @copyright liu hao<liu546hao@163.com>
  */
 
-class Node
-{
-    public $index;
-    public $value;
-
-    public function setValue($value)
-    {
-        $this->value = $value;
-        $this->index = $value['index'];
-
-        return $this->index;
-    }
-}
-
 class TreeNode
 {
+    /**
+     * @var TreeNode
+     */
     public $parent = null;
 
-    public $nodeList = [];
+    public $valueMap = [];
 
-    public $indexList = [];
+    public $valueNum = 0;
 
-    public $children = [];
+    public $ptrNum = 0;
 
-    public $nodeNum = 0;
+    public $ptrMap = [];
 
-    public function __construct($order = 3)
+    public $order;
+
+    /**
+     * @var BTree
+     */
+    public $btree;
+
+    public function __construct($btree, $order = 3)
     {
+        $this->btree = $btree;
+        $this->order = $order;
         for ($i = 0; $i < ($order - 1); $i++) {
-            $this->indexList[$i] = 0;
-            $this->nodeList[$i] = null;
+            $this->valueMap[$i] = 0;
         }
         for ($i = 0; $i < $order; $i++) {
-            $this->children[$i] = null;
+            $this->ptrMap[$i] = null;
         }
     }
 
-    public function setValue($value)
+    public function add($value)
     {
-        $node = new Node();
-        $index = $node->setValue($value);
-        array_push($this->indexList, $index);
-        $this->nodeList[$index] = $node;
-        sort($this->indexList);
-        $this->nodeNum = count($this->indexList);
+        $this->valueMap[$this->valueNum] = $value;
+        $this->valueNum++;
+    }
+
+    public function isFull()
+    {
+        return $this->valueNum >= $this->order;
+    }
+
+    public function split()
+    {
+        $index = floor($this->valueNum / 2);
+        if (is_null($this->parent)) {
+            $node = new self($this->btree, $this->order);
+            $this->btree->root = $node;
+        } else {
+            $node = $this->parent;
+
+        }
+
+        $node->add($this->valueMap[$index]);
+
+        $leftNode = new self($this->btree, $this->order);
+        $rightNode = new self($this->btree, $this->order);
+        $node->ptrMap[$node->ptrNum++] = $leftNode;
+        $node->ptrMap[$node->ptrNum++] = $rightNode;
+        $leftNode->parent = $node;
+        $rightNode->parent = $node;
+
+        for ($i = 0; $i < $this->order; $i++) {
+            if ($i < $index) {
+                $leftNode->ptrMap[$leftNode->ptrNum++] = $this->ptrMap[$i];
+            } else if ($i > $index) {
+                $rightNode->ptrMap[$rightNode->ptrNum++] = $this->ptrMap[$i];
+            }
+        }
+
+        for ($i = 0; $i < $this->order; $i++) {
+            if ($i < $index) {
+                $leftNode->add($this->valueMap[$i]);
+            } else if ($i > $index) {
+                $rightNode->add($this->valueMap[$i]);
+            }
+        }
+
+        if ($node->isFull()) {
+            $node->split();
+        }
     }
 }
-
-
 
 class BTree
 {
     /**
      * @var TreeNode
      */
-    public $rootNode = null;
+    public $root = null;
 
     public $order = 3;
 
@@ -73,73 +110,96 @@ class BTree
     public function insert($value)
     {
         if ($this->isEmpty()) {
-            $newNode = new TreeNode($this->order);
-            $newNode->setValue($value);
-            $this->rootNode = $newNode;
+            $node = new TreeNode($this, $this->order);
+            $node->add($value);
+            $this->root = $node;
         } else {
-            $nowNode = $this->rootNode;
-            $index = $value['index'];
-            while ($nowNode != null) {
-                foreach ($nowNode->indexList as $value) {
-                    if ($index < $value) {
-                        
+            $prevNode = $this->root;
+            $tmpNode = $this->root;
+            $count = 0;
+            while ($tmpNode != null) {
+                $prevNode = $tmpNode;
+                $list = $tmpNode->valueMap;
+                $valueNum = $tmpNode->valueNum;
+                $count++;
+                if ($count > 30) {
+                    break;
+                }
+                for ($i = 0; $i < $valueNum; $i++) {
+                    if ($value === $list[$i]) {
+                        return false;
+                    } else if ($value < $list[$i]) {
+                        $tmpNode = $tmpNode->ptrMap[$i];
+                        break;
                     }
+                }
+
+                if ($i > $valueNum) {
+                    $tmpNode = $tmpNode->ptrMap[$i];
+                }
+            }
+
+            $prevNode->add($value);
+            if ($prevNode->isFull()) {
+                $prevNode->split();
+            }
+        }
+
+        return true;
+    }
+
+    public function find($value)
+    {
+        if (!$this->isEmpty()) {
+            $tmpNode = $this->root;
+            $count = 0;
+            while ($tmpNode != null) {
+                $list = $tmpNode->valueMap;
+                $valueNum = $tmpNode->valueNum;
+                $count++;
+                if ($count > 30) {
+                    break;
+                }
+                for ($i = 0; $i < $valueNum; $i++) {
+                    if ($value === $list[$i]) {
+                        return true;
+                    } else if ($value < $list[$i]) {
+                        $tmpNode = $tmpNode->ptrMap[$i];
+                        break;
+                    }
+                }
+
+                if ($i > $valueNum) {
+                    $tmpNode = $tmpNode->ptrMap[$i];
                 }
             }
         }
+
+        return true;
     }
 
-    /**
-     * @param $index
-     * @return TreeNode
-     */
-    public function find($index)
+    public function delete()
     {
-        if ($this->isEmpty()) {
-            return null;
-        } else {
-        }
+
     }
 
     public function isEmpty()
     {
-        return is_null($this->rootNode);
+        return is_null($this->root);
     }
 }
 
+$testList = [5, 7, 12, 6, 3, 4, 9, 32, 22, 11, 23];
 $btree = new BTree();
-
-$array = [
-    [
-        'index' => 1,
-        'name' => 'a',
-    ],
-    [
-        'index' => 5,
-        'name' => 'b',
-    ],
-    [
-        'index' => 9,
-        'name' => 'g',
-    ],
-    [
-        'index' => 2,
-        'name' => 'j',
-    ],
-    [
-        'index' => 3,
-        'name' => 'k',
-    ],
-    [
-        'index' => 10,
-        'name' => 'l',
-    ],
-];
-
-foreach ($array as $value) {
-    $btree->add($value);
+foreach ($testList as $value) {
+    $btree->insert($value);
 }
 
-var_dump($btree->find(1));
+$v = 2;
+if ($btree->find($v)) {
+    var_dump($v.' is exists!');
+} else {
+    var_dump($v.' is not exists!');
+}
 
 
