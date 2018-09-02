@@ -1,6 +1,6 @@
-- BTree : B树
+- BPlusTree : B+树(未完成)
 
-- BTreePlus : B+树(未完成)
+- BTree : B树
 
 - Hash : Hash表实现
 
