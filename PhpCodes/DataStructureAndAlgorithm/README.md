@@ -1,4 +1,4 @@
-- BPlusTree : B+树(未完成)
+- BPlusTree : B+树
 
 - BTree : B树
 

@@ -188,6 +188,11 @@ class BTree
         }
     }
 
+    public function delete()
+    {
+        //TODO
+    }
+
     /**
      * @param $id
      * @return BTNode | null
