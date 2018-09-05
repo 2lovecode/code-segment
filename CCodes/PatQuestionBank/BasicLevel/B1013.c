@@ -1,110 +1,75 @@
 /*
-1014 福尔摩斯的约会 (20)（20 分）
+1013 数素数 (20)（20 分）
 
-大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm”。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是第4个字母'D'，代表星期四；第2对相同的字符是'E'，那是第5个英文字母，代表一天里的第14个钟头（于是一天的0点到23点由数字0到9、以及大写字母A到N表示）；后面两字符串第1对相同的英文字母's'出现在第4个位置（从0开始计数）上，代表第4分钟。现给定两对字符串，请帮助福尔摩斯解码得到约会的时间。
+令P~i~表示第i个素数。现任给两个正整数M <= N <= 10^4^，请输出P~M~到P~N~的所有素数。
 
 输入格式：
 
-输入在4行中分别给出4个非空、不包含空格、且长度不超过60的字符串。
+输入在一行中给出M和N，其间以空格分隔。
 
 输出格式：
 
-在一行中输出约会的时间，格式为“DAY HH:MM”，其中“DAY”是某星期的3字符缩写，即MON表示星期一，TUE表示星期二，WED表示星期三，THU表示星期四，FRI表示星期五，SAT表示星期六，SUN表示星期日。题目输入保证每个测试存在唯一解。
+输出从P~M~到P~N~的所有素数，每10个数字占1行，其间以空格分隔，但行末不得有多余空格。
 
 输入样例：
 
-3485djDkxh4hhGE
-2984akDfkkkkggEdsb
-s&hgsfdk
-d&Hyscvnm
+5 27
 
 输出样例：
 
-THU 14:04
+11 13 17 19 23 29 31 37 41 43
+47 53 59 61 67 71 73 79 83 89
+97 101 103
 
-注意：注意下相同的字符的范围
-1.A-G
-2.0-9或A-N
-3.A-Z或a-z
+注意审题：是第5到第27个素数
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <math.h>
 
 
-struct vp{
-	char value;
-	int pos;
-};
+int isPrime(int n);
 
 int main ()
 {
-	struct vp vv[4];
+	int start, end;
+	int i, cnt = 0, ccnt = 0;
 
-	char ss[4][61];
-	int i, vcnt = 0;
-	char weeks[7][4] = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
-
-	int week, hour, minutes;
-
-	for (i = 0; i < 4; i++) {
-		if (!scanf("%s", ss[i])) {
-			return EXIT_FAILURE;
-		}
+	if (!scanf("%d%d", &start, &end)) {
+		return EXIT_FAILURE;
 	}
 
-	i = 0;
-	while (ss[0][i] != '\0' && ss[1][i] != '\0') {
-		if ((ss[0][i] == ss[1][i])) {
-			if (vcnt < 2) {
-				if ((vcnt == 0) && (ss[0][i] >= 'A' && ss[0][i] <= 'G')) {
-					vv[vcnt].value = ss[0][i];
-					vv[vcnt].pos = i;
-					vcnt++;
-				} else if ((vcnt == 1) && ((ss[0][i] >= '0' && ss[0][i] <= '9') || (ss[0][i] >= 'A' && ss[0][i] <= 'N'))) {
-					vv[vcnt].value = ss[0][i];
-					vv[vcnt].pos = i;
-					vcnt++;
+	i = 2;
+
+	while (cnt < end) {
+		if (isPrime(i)) {
+			cnt++;
+			if (cnt >= start) {
+				if (ccnt % 10 == 0) {
+					if (ccnt != 0) {
+						printf("\n%d", i);
+					} else {
+						printf("%d", i);
+					}
+				} else {
+					printf(" %d", i);
 				}
-
-			} else {
-				break;
+				ccnt++;
 			}
 		}
 		i++;
 	}
 
-	i = 0;
-	while (ss[2][i] != '\0' && ss[3][i] != '\0') {
-		if (ss[2][i] == ss[3][i] && ss[2][i] >= 'A' && ss[3][i] <= 'z') {
-			if (vcnt < 3) {
-				vv[vcnt].value = ss[2][i];
-				vv[vcnt].pos = i;
-			} else {
-				break;
-			}
-			vcnt++;
-		}
-		i++;
-	}
-
-
-	if (vv[0].value <= 'Z' && vv[0].value >= 'A') {
-		week = vv[0].value - 'A';
-	} else {
-		week = vv[0].value - 'a';
-	}
-
-	if (vv[1].value >= 'A' && vv[1].value <= 'N') {
-		hour = vv[1].value - 'A' + 10;
-	} else if (vv[1].value >= 'a' && vv[1].value <= 'z') {
-		hour = vv[1].value - 'a' + 10;
-	} else {
-		hour = vv[1].value - '0';
-	}
-
-	minutes = vv[2].pos;
-
-	printf("%s%s%d%s%d", weeks[week], hour < 10 ? " 0" : " ", hour, minutes < 10 ? ":0" : ":", minutes);
 	return EXIT_SUCCESS;
+}
+
+int isPrime(int n)
+{
+	int i;
+	for (i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) {
+			return 0;
+		}
+	}
+	return 1;
 }
