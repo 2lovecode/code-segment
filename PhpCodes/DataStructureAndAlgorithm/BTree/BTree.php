@@ -34,9 +34,42 @@ class BTNode
         $this->childNum++;
     }
 
+    public function delete($index = 0)
+    {
+        $child = $this->children[$index];
+        unset($this->children[$index]);
+        $this->childNum--;
+        ksort($this->children);
+        $indexNum = 0;
+        foreach ($this->indexMap as $key => $value) {
+            if ($value == $index) {
+                $indexNum = $key;
+                break;
+            }
+        }
+        unset($this->indexMap[$indexNum]);
+        sort($this->indexMap);
+        $this->indexNum--;
+
+        return $child;
+    }
+
+    public function update($ori, $to)
+    {
+        $child = $this->children[$ori];
+        $this->delete($ori);
+        $this->add($to, $child);
+
+    }
+
     public function isFull($order)
     {
         return $this->indexNum >= $order;
+    }
+
+    public function isMin($order)
+    {
+        return $this->indexNum < (ceil($order / 2) - 1);
     }
 }
 
@@ -188,9 +221,61 @@ class BTree
         }
     }
 
-    public function delete()
+    public function delete($index)
     {
-        //TODO
+        if (!$this->isEmpty()) {
+            $nextNode = $this->root;
+
+            while ($nextNode != null) {
+                $indexMap = $nextNode->indexMap;
+                $indexNum = $nextNode->indexNum;
+                $pos = $indexMap[$indexNum - 1];
+
+                for ($i = 0; $i < $indexNum; $i++) {
+                    if ($index < $indexMap[$i]) {
+                        if ($i !== 0) {
+                            $pos = $indexMap[$i - 1];
+                        } else {
+                            $pos = 0;
+                        }
+                        break;
+                    } else if ($index == $indexMap[$i]) {
+                        break 2;
+                    }
+                }
+
+                $nextNode = $this->getNode($nextNode->children[$pos]);
+            }
+            if ($nextNode->children[$index] == 0) {
+                $nextNode->delete($index);
+                if ($nextNode->isMin($this->order)) {
+
+                }
+            } else {
+                $minIndex = $this->findMin($this->getNode($nextNode[$index]));
+                $nextNode->update($index, $minIndex);
+            }
+        }
+
+        return false;
+    }
+
+    protected function findMin(BTNode $node)
+    {
+        $tmpNode = $node;
+        $prevNode = $tmpNode;
+
+        while ($tmpNode != null) {
+            $prevNode = $tmpNode;
+            $tmpNode = $this->getNode($tmpNode->children[0]);
+        }
+
+        $index = $prevNode->indexMap[0];
+        $prevNode->delete($index);
+        if ($prevNode->isMin($this->order)) {
+
+        }
+        return $index;
     }
 
     /**
@@ -219,6 +304,7 @@ foreach ($testList as $value) {
 }
 echo '<hr>';
 
+//$btree->delete(101);
 /******************************* 测试find方法 *****************************************/
 $tt = [3, 4, 5, 10, 22, 32, 7, 6, 2, 1, 999, 22, 33, 55, 1, 9, 17, 101];
 
@@ -230,6 +316,28 @@ foreach ($tt as $v) {
         echo $v.' 存在! 是否正确:['.$msg.']';
     } else {
         $msg = !in_array($v, $testList) ? 'true' : 'false';
+        echo $v. ' 不存在! 是否正确:['.$msg.']';
+    }
+    echo '<br>';
+}
+echo '<hr>';
+
+
+/******************************* 测试delete方法 *****************************************/
+echo '测试delete方法:<br>';
+
+//只做了删除叶节点，且不会有额外合并的情况
+$delete = [101];
+foreach ($delete as $e) {
+    $btree->delete($e);
+}
+
+foreach ($tt as $v) {
+    if ($btree->find($v)) {
+        $msg = in_array($v, $testList) && !in_array($v, $delete) ? 'true' : 'false';
+        echo $v.' 存在! 是否正确:['.$msg.']';
+    } else {
+        $msg = !in_array($v, $testList) || in_array($v, $delete) ? 'true' : 'false';
         echo $v. ' 不存在! 是否正确:['.$msg.']';
     }
     echo '<br>';
