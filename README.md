@@ -9,6 +9,9 @@
 - [x] [CCodes](CCodes) : c语言
   - [x] [GetLineOperation](CCodes/GetLineOperation) : 读取标准输入
   - [x] [PatQuestionBank](CCodes/PatQuestionBank) : PAT能力考试真题题库解答 https://www.patest.cn/practice
+   - [ ] [AdvancedLevel](CCodes/PatQuestionBank/AdvancedLevel) : 甲级真题
+   - [ ] [BasicLevel](CCodes/PatQuestionBank/BasicLevel) : 乙级真题
+   - [ ] [TopLevel](CCodes/PatQuestionBank/TopLevel) : 顶级真题
   - [x] [SwapValue](CCodes/SwapValue) : 值交换
 - [x] [GoCodes](GoCodes) : Go语言
   - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
