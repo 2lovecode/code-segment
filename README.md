@@ -34,11 +34,20 @@
     - [x] [PageRank](PhpCodes/DataStructureAndAlgorithm/PageRank) : 网页排名-简单PageRank实现
   
     - [x] [Sort](PhpCodes/DataStructureAndAlgorithm/Sort) : 排序算法
-        - [x] [HeapSort](PhpCodes/DataStructureAndAlgorithm/Sort/HeapSort.php) : 堆排序
-        - [x] [InsertSort](PhpCodes/DataStructureAndAlgorithm/Sort/InsertSort.php) : 插入排序
-        - [x] [MergeSort](PhpCodes/DataStructureAndAlgorithm/Sort/MergeSort.php) : 归并排序
-        - [x] [QuickSort](PhpCodes/DataStructureAndAlgorithm/Sort/QuickSort.php) : 快速排序
-        - [x] [RadixSort](PhpCodes/DataStructureAndAlgorithm/Sort/RadixSort.php) : 基数排序 
+        - [x] [CompareSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort) : 比较类排序
+            - [x] [InsertSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/InsertSort) : 插入类排序
+                - [ ] [InsertSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/InsertSort/InsertSort.php) : 插入排序
+            - [x] [MergeSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/MergeSort) : 归并类排序
+                - [x] [MergeSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/MergeSort/MergeSort.php) : 归并排序
+            - [x] [SelectSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/SelectSort) : 选择类排序
+                - [x] [HeapSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/SelectSort/HeapSort.php) : 堆排序
+            - [x] [SwapSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/SwapSort) : 交换类排序
+                - [x] [BubbleSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/SwapSort/BubbleSort.php) : 冒泡排序
+                - [x] [QuickSort](PhpCodes/DataStructureAndAlgorithm/Sort/CompareSort/SwapSort/QuickSort.php) : 快速排序     
+        - [x] [NoCompareSort](PhpCodes/DataStructureAndAlgorithm/Sort/NoCompareSort) : 非比较类排序
+            - [x] [BucketSort](PhpCodes/DataStructureAndAlgorithm/Sort/NoCompareSort/BucketSort.php) : 桶排序
+            - [x] [CountSort](PhpCodes/DataStructureAndAlgorithm/Sort/NoCompareSort/CountSort.php) : 计数排序
+            - [x] [RadixSort](PhpCodes/DataStructureAndAlgorithm/Sort/NoCompareSort/RadixSort.php) : 基数排序 
   
   - [x] [DesignPatterns](PhpCodes/DesignPatterns):一些设计模式的示例
     - [x] [Adapter](PhpCodes/DesignPatterns/Adapter) : 适配器模式

@@ -9,7 +9,7 @@ class RadixSort
 {
     public $originalData = [];
 
-    public $resault = [];
+    public $result = [];
 
     public function __construct(array $originalData = [])
     {
@@ -18,7 +18,7 @@ class RadixSort
 
     public function sort()
     {
-        $maxLen = $this->caculateMaxDigits();
+        $maxLen = $this->calculateMaxDigits();
 
         $tmpData = $this->originalData;
         $bucketData = [];
@@ -42,11 +42,11 @@ class RadixSort
             $bucketData = [];
         }
 
-        $this->resault = $tmpData;
-        return $this->resault;
+        $this->result = $tmpData;
+        return $this->result;
     }
 
-    public function caculateMaxDigits()
+    public function calculateMaxDigits()
     {
         $maxLen = 0;
         foreach ($this->originalData as $key => $value) {
