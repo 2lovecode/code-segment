@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Class MergeSortTest
+ *
+ * 归并排序
+ *
+ */
 class MergeSortTest
 {
 	protected function mergeArray($arrayOne, $arrayTwo)
