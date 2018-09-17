@@ -5,6 +5,7 @@
  *
  * 插入排序
  *
+ * 遍历序列,将当前值插入到之前排序好的序列的合适位置.
  *
  */
 class InsertSort
@@ -22,5 +23,23 @@ class InsertSort
 
     public function sort()
     {
+        for ($i = 0; $i < $this->dataLen; $i++) {
+            for ($j = $i; $j > 0; $j--) {
+                if ($this->resultData[$j-1] > $this->resultData[$j]) {
+                    $tmp = $this->resultData[$j-1];
+                    $this->resultData[$j-1] = $this->resultData[$j];
+                    $this->resultData[$j] = $tmp;
+                } else {
+                    break;
+                }
+            }
+        }
+        return $this->resultData;
     }
 }
+
+$testData = [155, 19, 88, 12, 40, 29, 1, 23];
+
+$insertSort = new InsertSort($testData);
+echo '<pre>';
+var_dump($insertSort->sort());
