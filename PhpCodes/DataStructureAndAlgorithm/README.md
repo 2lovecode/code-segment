@@ -4,6 +4,10 @@
 
 - Hash : Hash表实现
 
+- Heap : 堆实现
+ - MaxHeap : 最大堆
+ - MinHeap : 最小堆
+
 - PageRank : 网页排名-简单PageRank实现
 
 - Sort : 排序算法

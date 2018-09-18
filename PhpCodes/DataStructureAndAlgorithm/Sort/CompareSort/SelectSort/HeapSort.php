@@ -1,8 +1,9 @@
 <?php
 header('content-type:text/html;charset=utf-8');
-/*
-*	堆排序,我们使用数组构建堆，注意数组下标从1开始。
-*/
+/**
+ *	堆排序
+ *  我们使用数组构建堆，注意数组下标从1开始。
+ */
 abstract class Heap
 {
 	protected $heap = [0];
@@ -115,18 +116,11 @@ class MaxHeap extends Heap
 }
 
 
-class Test
-{
-	public function run()
-	{
-		$testData = [33, 4, 3, 2, 5, 6, 9, 10, 32, 23, 45, 11, 25];
-		$minHeap = new MinHeap($testData);
-		$maxHeap = new MaxHeap($testData);
 
-		var_dump($minHeap->sort());
-		var_dump($maxHeap->sort());
-	}
-}
+$testData = [33, 4, 3, 2, 5, 6, 9, 10, 32, 23, 45, 11, 25];
+$minHeap = new MinHeap($testData);
+$maxHeap = new MaxHeap($testData);
 
-$test = new Test();
-$test->run();
+echo '<pre>';
+var_dump($minHeap->sort());
+var_dump($maxHeap->sort());
