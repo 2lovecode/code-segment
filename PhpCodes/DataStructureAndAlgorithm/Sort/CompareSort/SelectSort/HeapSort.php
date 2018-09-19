@@ -4,6 +4,7 @@ header('content-type:text/html;charset=utf-8');
  *	堆排序
  *  我们使用数组构建堆，注意数组下标从1开始。
  */
+
 abstract class Heap
 {
 	protected $heap = [0];
