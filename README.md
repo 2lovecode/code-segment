@@ -100,7 +100,8 @@
   - [x] [TransformDataPieces](PhpCodes/TransformDataPieces):将crontab的配置,例如： * * * * *,分解为散列的时间片段,实现定时功能
   
   - [x] [UrlShortener](PhpCodes/UrlShortener) : url短链接生成策略
-    - [x] [Md5Shortener](PhpCodes/UrlShortener/Md5Shortener.php) : md5方式生成短链接
+    - [x] [AutoIncreaseShortener](PhpCodes/UrlShortener/AutoIncreaseShortener.php) : 自增序列法
+    - [x] [Md5Shortener](PhpCodes/UrlShortener/Md5Shortener.php) : 摘要法
     
   - [x] [UsefulTools](PhpCodes/UsefulTools):一些有趣的工具
 - [ ] [PythonCodes](PythonCodes) : Python
