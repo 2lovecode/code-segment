@@ -10,6 +10,9 @@
 
 - PageRank : 网页排名-简单PageRank实现
 
+- SkipList : 跳跃表实现
+  - SkipList : 跳跃表实现
+
 - Sort : 排序算法
     - CompareSort : 比较类排序
         - InsertSort : 插入类排序
