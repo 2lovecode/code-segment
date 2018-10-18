@@ -180,6 +180,8 @@ class RedBlackTree
                     $tmpNode = $parent;
 
                     $this->rightRotate($tmpNode->parent, true);
+                } else {
+                    $this->rightRotate($tmpNode->getID(), true);
                 }
 
 
@@ -194,11 +196,12 @@ class RedBlackTree
                     $tmpNode = $grandP;
                 } else if ($tmpNode->getID() == $parent->left) {
 
-
                     $this->rightRotate($tmpNode->getID());
 
                     $tmpNode = $parent;
                     $this->leftRotate($tmpNode->parent, true);
+                } else {
+                    $this->leftRotate($tmpNode->getID(), true);
                 }
 
 
@@ -292,9 +295,9 @@ class RedBlackTree
     }
 }
 
-$test = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 11, 21];
+$test = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 11, 21, 1000, 3000, 99];
 
-$testH = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 19];
+$testH = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 19, 99];
 
 echo '<pre>';
 $tree = new RedBlackTree();
