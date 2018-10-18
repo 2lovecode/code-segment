@@ -93,18 +93,11 @@ class RedBlackTree
 
     public function find($value)
     {
-//        var_dump($this->root);
-//        var_dump($this->nodePool);exit;
         $tmp = $this->getNodeFromPool($this->root);
 
-        $count = 0;
 
         while (!is_null($tmp->getValue())) {
-            $count++;
-            if ($count > 10)  {
-                break;
-            }
-            var_dump($tmp->getValue());
+
             if ($tmp->getValue() > $value) {
                 $tmp = $this->getNodeFromPool($tmp->left);
             } else if ($tmp->getValue() < $value) {
@@ -119,6 +112,7 @@ class RedBlackTree
 
     public function walk($nodeID)
     {
+        var_dump($this->root);
         var_dump($this->nodePool);
     }
 
@@ -127,14 +121,8 @@ class RedBlackTree
         $tmpNode = $this->getNodeFromPool($this->root);
         $prevNode = $tmpNode;
 
-        $count = 0;
-
         while (!is_null($tmpNode->getValue())) {
 
-            $count++;
-            if ($count > 100) {
-                break;
-            }
             $prevNode = $tmpNode;
 
             if ($tmpNode->getValue() > $value) {
@@ -170,13 +158,9 @@ class RedBlackTree
     {
         $tmpNode = $this->getNodeFromPool($node);
 
-        $count = 0;
 
         while (!is_null($tmpNode->getValue()) && ($this->getNodeFromPool($tmpNode->parent)->getColor() == 1)) {
-            $count++;
-            if ($count > 100) {
-                break;
-            }
+
 
             $grandP = $this->getNodeFromPool($this->getNodeFromPool($tmpNode->parent)->parent);
             $parent = $this->getNodeFromPool($tmpNode->parent);
@@ -188,17 +172,16 @@ class RedBlackTree
                     $parent->setColor(2);
                     $rightUncle->setColor(2);
                     $grandP->setColor(1);
-                    $tmpNode = $grandP;
 
+                    $tmpNode = $grandP;
                 } else if ($tmpNode->getID() == $parent->right) {
+                    $this->leftRotate($tmpNode->getID());
+
                     $tmpNode = $parent;
-                    $this->leftRotate($tmpNode->getID(), $parent->getID(), $grandP->getID());
+
+                    $this->rightRotate($tmpNode->parent, true);
                 }
 
-                $parent->setColor(2);
-                $grandP->setColor(1);
-
-                $this->rightRotate($parent->getID(), $grandP->getID(), $grandP->parent);
 
             } else {
                 $leftUncle = $this->getNodeFromPool($grandP->left);
@@ -207,15 +190,17 @@ class RedBlackTree
                     $parent->setColor(2);
                     $leftUncle->setColor(2);
                     $grandP->setColor(1);
+
                     $tmpNode = $grandP;
                 } else if ($tmpNode->getID() == $parent->left) {
-                    $tmpNode = $parent;
-                    $this->rightRotate($tmpNode->getID(), $parent->getID(), $grandP->getID());
-                }
-                $parent->setColor(2);
-                $grandP->setColor(1);
 
-                $this->leftRotate($parent->getID(), $grandP->getID(), $grandP->parent);
+
+                    $this->rightRotate($tmpNode->getID());
+
+                    $tmpNode = $parent;
+                    $this->leftRotate($tmpNode->parent, true);
+                }
+
 
             }
             $this->getNodeFromPool($this->root)->setColor(2);
@@ -223,16 +208,35 @@ class RedBlackTree
 
     }
 
-    protected function leftRotate($nodeID, $parentID, $grandPID)
+    protected function leftRotate($nodeID, $changeColor = false)
     {
         $node = $this->getNodeFromPool($nodeID);
+        $parentID = $node->parent;
+
         $parent = $this->getNodeFromPool($parentID);
+
+        $grandPID = $parent->parent;
+
         $grandP = $this->getNodeFromPool($grandPID);
 
-        if ($grandP->left = $parentID) {
-            $grandP->left = $nodeID;
+        if (is_null($grandP->getValue())) {
+            $this->root = $nodeID;
         } else {
-            $grandP->right = $nodeID;
+            if ($grandP->left == $parentID) {
+                $grandP->left = $nodeID;
+            } else {
+                $grandP->right = $nodeID;
+            }
+        }
+
+        if ($changeColor) {
+            $node->setColor(2);
+            $parent->setColor(1);
+        }
+
+        $leftNode = $this->getNodeFromPool($node->left);
+        if (!is_null($leftNode->getValue())) {
+            $leftNode->parent = $parentID;
         }
 
         $parent->right = $node->left;
@@ -243,16 +247,35 @@ class RedBlackTree
 
     }
 
-    protected function rightRotate($nodeID, $parentID, $grandPID)
+    protected function rightRotate($nodeID, $changeColor = false)
     {
         $node = $this->getNodeFromPool($nodeID);
+        $parentID = $node->parent;
+
         $parent = $this->getNodeFromPool($parentID);
+
+        $grandPID = $parent->parent;
+
         $grandP = $this->getNodeFromPool($grandPID);
 
-        if ($grandP->left = $parentID) {
-            $grandP->left = $nodeID;
+        if (is_null($grandP->getValue())) {
+            $this->root = $nodeID;
         } else {
-            $grandP->right = $nodeID;
+            if ($grandP->left == $parentID) {
+                $grandP->left = $nodeID;
+            } else {
+                $grandP->right = $nodeID;
+            }
+        }
+
+        if ($changeColor) {
+            $node->setColor(2);
+            $parent->setColor(1);
+        }
+
+        $rightNode = $this->getNodeFromPool($node->right);
+        if (!is_null($rightNode->getValue())) {
+            $rightNode->parent = $parentID;
         }
 
         $parent->left = $node->right;
@@ -265,20 +288,26 @@ class RedBlackTree
 
     public function delete($value)
     {
-
+        //TODO
     }
 }
 
-$test = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79];
+$test = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 11, 21];
 
 $testH = [12, 550, 300, 20, 1, 50, 44, 34, 24, 25, 79, 19];
 
+echo '<pre>';
 $tree = new RedBlackTree();
 
 foreach ($test as $value) {
     $tree->insert($value);
 }
 
-echo '<pre>';
-
-$tree->walk($tree->root);
+foreach ($testH as $v) {
+    if ($tree->find($v)) {
+        echo 'true;';
+    } else {
+        echo 'false;';
+    }
+}
+//$tree->walk($tree->root);
