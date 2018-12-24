@@ -132,9 +132,12 @@ class SkipList
     {
         $level = 1;
 
-        if (rand(0, 1) && $level < $this->maxLevel) {
-            $level++;
+        for ($i = 1; $i < $this->maxLevel; $i++) {
+            if (rand(0, 1)) {
+                $level++;
+            }
         }
+
 
         return $level;
     }
