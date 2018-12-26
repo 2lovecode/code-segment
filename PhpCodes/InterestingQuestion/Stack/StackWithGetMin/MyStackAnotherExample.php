@@ -7,13 +7,13 @@
  */
 
 require_once "AbstractMyStack.php";
-require_once "MyStack.php";
+require_once "MyStackAnother.php";
 
-use PHPCodes\InterestingQuestion\Stack\StackWithGetMin\MyStack;
+use PHPCodes\InterestingQuestion\Stack\StackWithGetMin\MyStackAnother;
 
-$dataList = [100, 22, 39, 44, 11, 24];
+$dataList = [200, 222, 39, 144, 11, 24];
 
-$myStack = new MyStack();
+$myStack = new MyStackAnother();
 
 foreach ($dataList as $eachValue) {
     $myStack->push($eachValue);
