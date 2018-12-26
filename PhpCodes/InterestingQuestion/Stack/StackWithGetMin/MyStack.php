@@ -1,4 +1,6 @@
 <?php
+namespace PHPCodes\InterestingQuestion\Stack\StackWithGetMin;
+
 /**
  * code-segment
  *
@@ -15,19 +17,19 @@
 class MyStack
 {
     /**
-     * @var null|SplStack
+     * @var null|\SplStack
      */
     private $dataStack = null;
 
     /**
-     * @var null|SplStack
+     * @var null|\SplStack
      */
     private $minStack = null;
 
     public function __construct()
     {
-        $this->dataStack = new SplStack();
-        $this->minStack = new SplStack();
+        $this->dataStack = new \SplStack();
+        $this->minStack = new \SplStack();
     }
 
     public function push($value)
@@ -48,7 +50,7 @@ class MyStack
     {
 
         if ($this->dataStack->isEmpty()) {
-            throw new RuntimeException("栈为空");
+            throw new \RuntimeException("栈为空");
         }
 
         $value = $this->dataStack->pop();
@@ -63,11 +65,16 @@ class MyStack
     public function getMin()
     {
         if ($this->minStack->isEmpty()) {
-            throw new RuntimeException("栈为空");
+            throw new \RuntimeException("栈为空");
         }
 
         $value = $this->minStack->top();
 
         return $value;
+    }
+
+    public function isEmpty()
+    {
+        return $this->dataStack->isEmpty();
     }
 }

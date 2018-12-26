@@ -1,7 +1,7 @@
 #### 注 1)：关于示例
     1. 根据建议,在之后的代码中,示例代码所在文件和类的定义文件会分开,但它们会在同一目录下.
     2. 后缀为Example的文件名才是示例,请注意!
-    3. 以StackWithGetMin.php和StackWithGetMinExample.php为例,前者是类的定义文件,后者是前者类的使用示例.
+    3. 以MyStack.php和以MyStackExample.php为例,前者是类的定义文件,后者是前者类的使用示例.
     4. 之后使用新的组织形式的代码,在当前README文件中会有 [NEW] 标识
     5. 之前的代码,运行示例,直接执行该文件.现在需要执行后缀为Example的文件
        

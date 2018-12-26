@@ -6,7 +6,9 @@
  * @copyright liu hao<liu546hao@163.com>
  */
 
-require_once "StackWithGetMin.php";
+require_once "MyStack.php";
+
+use PHPCodes\InterestingQuestion\Stack\StackWithGetMin\MyStack;
 
 $dataList = [100, 22, 39, 44, 11, 24];
 
