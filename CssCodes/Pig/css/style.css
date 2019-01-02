@@ -1,0 +1,224 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+.box {
+    width : 1000px;
+    height : 500px;
+    background : darkseagreen;
+    position : relative;
+    margin : 0 auto;
+}
+
+.box .bl-1 {
+    position : absolute;
+}
+
+.box .pig-head {
+    top : 100px;
+    left : 300px;
+    background : gray;
+
+    width : 200px;
+    height : 200px;
+    border-radius: 50%;
+}
+
+.pig-eye {
+    width: 20px;
+    height: 20px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    animation : eyes-blink 1s infinite;
+}
+
+.eye-left {
+    left: 25%;
+}
+
+.eye-right {
+    right: 25%;
+}
+
+.pig-eye .eye-line{
+    width : 14px;
+    height : 10px;
+    border-top : 2px solid black;
+    position : absolute;
+    top : 50%;
+    animation : eyes-blink-line 1s infinite;
+}
+
+.pig-eye .line-left {
+    left : 0;
+    transform: rotate(-30deg);
+}
+
+.pig-eye .line-right {
+    right : 0;
+    transform: rotate(30deg);
+}
+
+.pig-eye .eye-lid {
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left : 60%;
+    top : 20%;
+    opacity: 0;
+    animation : eyes-blink-lid 1s infinite;
+}
+
+.pig-nose {
+    width : 80px;
+    height : 50px;
+    border-radius: 50%;
+    background : white;
+    position: absolute;
+    top : 45%;
+    left : 30%;
+}
+
+.pig-nose .nose-hole {
+    width : 15px;
+    height : 15px;
+    border-radius: 50%;
+    background : pink;
+    position: absolute;
+    top : 30%;
+}
+.pig-nose .hole-left {
+    left : 20%;
+}
+
+.pig-nose .hole-right {
+    right : 20%;
+}
+
+.pig-mouth {
+    width : 60px;
+    height : 40px;
+    border-radius: 50%;
+    border-bottom : 20px solid pink;
+    position: absolute;
+    top : 60%;
+    left : 35%;
+}
+
+.pig-ear {
+    width: 130px;
+    height: 100px;
+    top : 26%;
+}
+
+.ear-left {
+    border-radius: 80% 10% 100% 0;
+    background : gray;
+    transform : rotate(13deg);
+    left : 180px;
+}
+
+.ear-right {
+    border-radius: 10% 80% 0 100%;
+    background : gray;
+    transform : rotate(-13deg);
+    left : 490px;
+}
+
+.pig-ear .ear-text {
+    position : absolute;
+    top : 40%;
+}
+
+.pig-ear .ear-text canvas {
+    width : 300px;
+    height : 150px;
+}
+
+.ear-left .ear-text {
+    left : 20%;
+}
+
+.ear-right .ear-text {
+    z-index: 100;
+    right : 20%;
+}
+
+.pig-hair {
+    width : 18px;
+    height : 10px;
+    background : deeppink;
+    top : 90px;
+    left : 391px;
+}
+.hair-part {
+    width : 30px;
+    height : 60px;
+    top : 50px;
+}
+
+.hair-part-1 {
+    border-radius : 70% 50% 0 0;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    left : 400px;
+}
+
+.hair-part-2 {
+    border-radius : 70% 50% 0 0;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    left : 402px;
+}
+
+.hair-part-3 {
+    border-radius : 50% 70% 0 0;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    left : 365px;
+}
+
+.hair-part-4 {
+    border-radius : 50% 70% 0 0;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    left : 368px;
+}
+
+.my-text {
+    top : 10%;
+    right : 0;
+}
+
+@keyframes eyes-blink
+{
+    from   {
+        background: gray;
+    }
+    to   {
+        background: black;
+    }
+}
+@keyframes eyes-blink-line
+{
+    from   {
+        opacity : 1;
+    }
+    to   {
+        opacity : 0;
+    }
+}
+@keyframes eyes-blink-lid
+{
+    from   {
+        opacity : 0;
+    }
+    to   {
+        opacity : 1;
+    }
+}
