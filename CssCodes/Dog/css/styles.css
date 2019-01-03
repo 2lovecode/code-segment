@@ -1,0 +1,161 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+.box {
+    width : 80em;
+    height : 40em;
+    background : palegoldenrod;
+    margin : 5em auto;
+}
+
+.box .circle-frame {
+    width : 35em;
+    height : 35em;
+    background : #AD181E;
+    border-radius : 50%;
+    position: relative;
+    top : 2em;
+    left : 23em;
+}
+
+.circle-frame .dog {
+    width : 20em;
+    height : 18em;
+    background : #E1BEA0;
+    border-radius: 45% 45% 40% 40%;
+    position : absolute;
+    top : 40%;
+    left : 7.5em;
+}
+
+.dog div {
+    position : absolute;
+}
+.dog .dog-eye {
+    width : 5em;
+    height : 5em;
+    background : white;
+    border-radius : 50%;
+    top : 5em;
+}
+
+.dog .eye-left {
+    left : 5%;
+}
+
+.dog .eye-right {
+    right : 5%;
+}
+
+.dog-eye .eye-lid {
+    width : 4.5em;
+    height : 4.5em;
+    background : black;
+    border-radius : 50%;
+    top : 0.25em;
+    left : 0;
+}
+
+.dog .dog-chin-bottom {
+    width : 8em;
+    height : 6em;
+    background : #D29671;
+    border-radius : 30% 30% 30% 30%;
+    top : 14em;
+    left : 6em;
+}
+
+.dog .dog-chin-middle {
+    width : 5em;
+    height : 5em;
+    background : #574628;
+    border-radius : 50%;
+    top : 14em;
+}
+
+.dog .middle-left {
+    left : 5.5em;
+}
+
+.dog .middle-right {
+    right : 5.5em;
+}
+
+.dog .dog-chin-rect {
+    width : 2em;
+    height : 2em;
+    background : #574628;
+    top : 13em;
+    left : 9em;
+}
+.dog .dog-face-circle {
+    width : 8em;
+    height : 8em;
+    background : #EBD5BE;
+    border-radius : 50%;
+    top : 11em;
+}
+
+.dog .face-circle-left {
+    left : 1.8em;
+}
+
+.dog .face-circle-right {
+    right : 1.8em;
+}
+
+.dog .dog-face-rect {
+    width : 7em;
+    height : 10em;
+    background: #EBD5BE;
+    border-radius: 50% 50% 0 0;
+    top : 5em;
+}
+
+.dog .face-rect-left {
+    left : 5em;
+    transform: rotate(30deg);
+}
+
+.dog .face-rect-right {
+    right : 5em;
+    transform: rotate(-30deg);
+}
+
+.dog .dog-nose {
+    width : 6em;
+    height : 5em;
+    background : black;
+    border-radius : 50%;
+    top : 6em;
+    left : 7em;
+}
+.dog .dog-nose-bottom {
+    width : 7em;
+    height : 6em;
+    background : #7E6B4D;
+    border-radius : 45% 45% 40% 40%;
+    top : 6em;
+    left : 6.5em;
+}
+
+.dog .dog-nose-middle {
+    width : 3em;
+    height : 8em;
+    background : #7E6B4D;
+    top : 9em;
+}
+
+.dog .nose-middle-left {
+    border-radius: 70% 70% 30% 70%;
+    left : 7em;
+    transform: rotate(5deg);
+}
+
+.dog .nose-middle-right {
+    border-radius: 70% 70% 70% 30%;
+    right : 7em;
+    transform: rotate(-5deg);
+}
