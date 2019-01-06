@@ -8,9 +8,12 @@
 <body>
     <div class="box">
         <div class="circle-frame">
+            <div class="dog-ear ear-left"></div>
+            <div class="dog-ear ear-right"></div>
             <div class="dog">
-                <div class="dog-ear"></div>
-                <div class="dog-ear"></div>
+                <div class="dog-forehead">
+                    <canvas id="my-forehead"></canvas>
+                </div>
                 <div class="dog-eye eye-left">
                     <div class="eye-lid"></div>
                 </div>
@@ -35,6 +38,50 @@
                 <div class="dog-nose"></div>
             </div>
         </div>
+        <div class="my-text">
+            <canvas id="my-right-text"></canvas>
+        </div>
     </div>
 </body>
 </html>
+
+<script>
+    //额头的字
+    var my_forehead = document.getElementById("my-forehead");
+    var forehead = my_forehead.getContext("2d");
+
+    var my_forehead_gradient = forehead.createLinearGradient(0, 0, 30, 0);
+
+    my_forehead_gradient.addColorStop(0, '#dae2f8');
+    my_forehead_gradient.addColorStop(1, '#d6a4a4');
+
+    forehead.fillStyle = my_forehead_gradient;
+    forehead.font = "25px Times New Roman";
+    forehead.fillText("婷", 0, 30);
+
+
+    //寄语
+    var my_right_text = document.getElementById("my-right-text");
+    var my_right = my_right_text.getContext("2d");
+
+    var my_right_gradient = my_right.createRadialGradient(40,60,5,90,60,100);
+
+    my_right_gradient.addColorStop(0, '#3E5151');
+    my_right_gradient.addColorStop(1, '#DECBA4');
+
+    my_right.fillStyle = my_right_gradient;
+
+    my_right.font = "20px Times New Roman";
+
+    my_right.fillText("勿", 40, 20);
+    my_right.fillText("弃", 40, 40);
+    my_right.fillText(" ", 40, 60);
+    my_right.fillText("勿", 40, 80);
+    my_right.fillText("忘", 40, 100);
+
+    my_right.font = "10px Times New Roman";
+    my_right.fillText("劉", 70, 80);
+    my_right.fillText("浩", 70, 95);
+    my_right.fillText("赠", 70, 110);
+
+</script>

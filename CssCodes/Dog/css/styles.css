@@ -17,7 +17,28 @@
     border-radius : 50%;
     position: relative;
     top : 2em;
-    left : 23em;
+    left : 24em;
+    animation : box-scroll 3s;
+}
+
+.dog-ear {
+    width : 6em;
+    height : 15em;
+    background : #D6A07A;
+    position : absolute;
+    top : 5em;
+}
+
+.ear-left {
+    border-radius : 100% 40% 0 10%;
+    left : 6em;
+    transform : rotate(-12deg);
+}
+
+.ear-right {
+    border-radius : 40% 100% 10% 0;
+    right : 6em;
+    transform: rotate(12deg);
 }
 
 .circle-frame .dog {
@@ -32,6 +53,11 @@
 
 .dog div {
     position : absolute;
+}
+
+.dog .dog-forehead {
+    top : 1em;
+    left : 9em;
 }
 .dog .dog-eye {
     width : 5em;
@@ -56,6 +82,7 @@
     border-radius : 50%;
     top : 0.25em;
     left : 0;
+    animation : lid-round 2s infinite;
 }
 
 .dog .dog-chin-bottom {
@@ -158,4 +185,48 @@
     border-radius: 70% 70% 70% 30%;
     right : 7em;
     transform: rotate(-5deg);
+}
+
+.my-text {
+    position: absolute;
+    bottom : 15em;
+    right : 2em;
+}
+
+@keyframes box-scroll {
+    0% {
+        left : -20em;
+        transform: rotate(0deg);
+    }
+    100% {
+        left : 24em;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes lid-round {
+    0% {
+        left : 0;
+        top : 0.25em;
+    }
+
+    25% {
+        left : 0.25em;
+        top : 0;
+    }
+
+    50% {
+        left : 0.5em;
+        top : 0.25em;
+    }
+
+    75% {
+        left : 0.5em;
+        top : 0.5em;
+    }
+
+    100% {
+        left : 0;
+        top : 0.25em;
+    }
 }
