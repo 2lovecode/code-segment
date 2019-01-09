@@ -166,12 +166,12 @@
 ## 关于 Google
 
 - [ ] 面向学生 —— [Google 的职业生涯：技术开发指导](https://www.google.com/about/careers/students/guide-to-technical-development.html)
-- [ ] Google 检索的原理：
-    - [ ] [Google 检索的发展史（视频）](https://www.youtube.com/watch?v=mTBShTwCnD4)
-    - [ ] [Google 检索的原理 —— 故事篇](https://www.google.com/insidesearch/howsearchworks/thestory/)
-    - [ ] [Google 检索的原理](https://www.google.com/insidesearch/howsearchworks/)
-    - [ ] [Google 检索的原理 —— Matt Cutts（视频）](https://www.youtube.com/watch?v=BNHR6IQJGZs)
-    - [ ] [Google 是如何改善其检索算法（视频）](https://www.youtube.com/watch?v=J5RZOU6vK4Q)
+- [x] Google 检索的原理：
+    - [x] [Google 检索的发展史（视频）](https://www.youtube.com/watch?v=mTBShTwCnD4)
+    - [x] [Google 检索的原理 —— 故事篇](https://www.google.com/insidesearch/howsearchworks/thestory/)
+    - [x] [Google 检索的原理](https://www.google.com/insidesearch/howsearchworks/)
+    - [x] [Google 检索的原理 —— Matt Cutts（视频）](https://www.youtube.com/watch?v=BNHR6IQJGZs)
+    - [x] [Google 是如何改善其检索算法（视频）](https://www.youtube.com/watch?v=J5RZOU6vK4Q)
 - [ ] 系列文章：
     - [ ] [Google 检索是如何处理移动设备](https://backchannel.com/how-google-search-dealt-with-mobile-33bc09852dc9)
     - [ ] [Google 为了寻找大众需求的秘密研究](https://backchannel.com/googles-secret-study-to-find-out-our-needs-eba8700263bf)
@@ -189,7 +189,7 @@
 ## 面试过程 & 通用的面试准备
 
 - [ ] 视频：
-    - [ ] [如何在 Google 工作 —— 考生指导课程（视频）](https://www.youtube.com/watch?v=oWbUtlUhwa8&feature=youtu.be)
+    - [ ] [如何在 Google 工作 —— 考生指导课程（视频）](https://www.youtube.com/watch?v=oWbUtlUhwa8&feature=youtu.betop)
     - [ ] [Google 招聘者所分享的技术面试小窍门（视频）](https://www.youtube.com/watch?v=qc1owf2-220&feature=youtu.be)
     - [ ] [如何在 Google 工作：技术型简历的准备（视频）](https://www.youtube.com/watch?v=8npJLXkcmu8)
 
@@ -201,7 +201,7 @@
     - [ ] [电话面试的问题](http://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions)
 
 - [ ] 附加的（虽然 Google 不建议，但我还是添加在此）：
-    - [ ] [ABC：永远都要去编程（Always Be Coding）](https://medium.com/always-be-coding/abc-always-be-coding-d5f8051afce2#.4heg8zvm4)
+    - [x] [ABC：永远都要去编程（Always Be Coding）](https://medium.com/always-be-coding/abc-always-be-coding-d5f8051afce2#.4heg8zvm4)
     - [ ] [四步成为 Google 里一名没有学位的员工](https://medium.com/always-be-coding/four-steps-to-google-without-a-degree-8f381aa6bd5e#.asalo1vfx)
     - [ ] [共享白板（Whiteboarding）](https://medium.com/@dpup/whiteboarding-4df873dbba2e#.hf6jn45g1)
     - [ ] [Google 是如何看待应聘、管理和公司文化](http://www.kpcb.com/blog/lessons-learned-how-google-thinks-about-hiring-management-and-culture)
