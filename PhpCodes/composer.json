@@ -1,6 +1,22 @@
 {
+  "name" : "2lovecode/code-segment",
+  "description" : "a simple php tools set",
+  "type" : "library",
+  "license" : [
+    "GPL-3.0+"
+  ],
+  "authors": [
+    {
+      "name": "liu hao",
+      "email": "liu546hao@163.com",
+      "homepage": "http://blog.csdn.net/AIkiller",
+      "role": "Developer"
+    }
+  ],
   "require":{
-    "php": ">=7.1.0",
+    "php": ">=7.1.0"
+  },
+  "require-dev":{
     "phpunit/phpunit": ">=6.5"
   },
   "autoload": {
