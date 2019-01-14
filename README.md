@@ -1,6 +1,14 @@
 # code-segment
 聚集一些平时写的或搜集的一些有用的或有意思的代码片段.
 
+#### 安装
+- PHP安装
+    对于php程序员,您可以在项目的composer.json文件的require中添加 "2lovecode/code-segment" : "dev-master" ,然后执行composer update,安装此库.
+    不过只有PhpCodes文件夹中的部分类您可以在自己的项目中通过自动加载使用,其它文件仅供查看参考.
+    
+- 暂不支持其它语言包管理器的安装,您可以直接git clone git@github.com:2lovecode/code-segment.git 直接下载.
+
+
 #### 目录：
 - [x] [AwkCodes](AwkCodes) : awk语言
   - [x] [Calendar](AwkCodes/Calendar) : 日历实现
@@ -120,8 +128,6 @@
 - [x] [ShellCodes](ShellCodes) : Shell脚本
   - [x] [AutoConfigLnmpWebSite](ShellCodes/AutoConfigLnmpWebSite) : 自动配置lnmp环境站点
   
-#### 安装
-- PHP,对于php程序员,您可以在项目的composer.json文件的require中添加 "2lovecode/code-segment" : "dev-master" ,然后执行composer update,安装此库.不过只有PhpCodes文件夹中的部分类您可以在自己的项目中通过自动加载使用,其它文件仅供查看参考.
 
 
 #### README 使用
