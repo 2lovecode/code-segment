@@ -21,7 +21,13 @@
   },
   "autoload": {
     "psr-4":{
-      "PHPCodes\\":"./"
+      "PHPCodes\\":"./PhpCodes"
     }
+  },
+  "config" : {
+    "vendor-dir" : "./PhpCodes/vendor"
+  },
+  "archive": {
+    "exclude": ["/", "!/PhpCodes"]
   }
 }

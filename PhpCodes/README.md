@@ -7,7 +7,7 @@
        
 #### 注 2):关于单元测试
     1. 在之后的代码中,我们会考虑加入单元测试,如有需要请阅读下面事项.
-    2. 请在当前目录,也就是PhpCodes目录下执行composer install命令安装依赖库.
+    2. 请在根目录,也就是PhpCodes目录的上一级目录执行composer install命令安装依赖库.
     3. 执行单元测试请在当前目录即PhpCodes目录下执行 php vendor/bin/phpunit命令
     4. 单元测试代码放到Tests文件夹中
     5. 同样,有单元测试的,我们会在当前的README文件中打上 [UNITTEST]标识
