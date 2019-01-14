@@ -120,6 +120,10 @@
 - [x] [ShellCodes](ShellCodes) : Shell脚本
   - [x] [AutoConfigLnmpWebSite](ShellCodes/AutoConfigLnmpWebSite) : 自动配置lnmp环境站点
   
+#### 安装
+- PHP,对于php程序员,您可以在项目的composer.json文件的require中添加 "2lovecode/code-segment" : "dev-master" ,然后执行composer update,安装此库.不过只有PhpCodes文件夹中的部分类您可以在自己的项目中通过自动加载使用,其它文件仅供查看参考.
+
+
 #### README 使用
  - 最外层展示所有层的目录树状结构,描述较简略
  - 各层目录下,只展示当前层包含的目录,描述较详细
