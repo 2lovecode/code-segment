@@ -1,6 +1,6 @@
 {
   "name" : "2lovecode/code-segment",
-  "description" : "a simple php tools set",
+  "description" : "a collection of code",
   "type" : "library",
   "license" : [
     "GPL-3.0+"
@@ -26,8 +26,5 @@
   },
   "config" : {
     "vendor-dir" : "./PhpCodes/vendor"
-  },
-  "archive": {
-    "exclude": ["/", "!/PhpCodes"]
   }
 }
