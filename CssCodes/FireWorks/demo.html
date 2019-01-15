@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-CN">
+    <head>
+        <title>
+            烟花特效
+        </title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background : #88C9C1;
+                /*background : #FFFFFF;*/
+            }
+
+            canvas {
+                cursor: crosshair;
+                display : block;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="fireworks-canvas">
+            您的浏览器不支持canvas标签
+        </canvas>
+    </body>
+</html>
+<script type="text/javascript">
+  //初始化参数
+  var fps = 30;
+  var nowTime = 0;
+  var prevTime = Date.now();
+  var interval = 1000 / fps;
+  var actualInterval = 0;
+  var fireworks = [];
+  var particles = [];
+  var texts = [];
+  var hue = 120;
+  var maxParticleCount = 60;
+
+
+
+  //对requestAnimationFrame方法针对不同浏览器做兼容处理
+  window.requestAnimFrame = ( function() {
+    return window.requestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || function( callback ) {
+            window.setTimeout( callback, 1000 / 60 );
+      };
+
+  })();
+
+  //获取窗口宽度
+  window.windowsWidth= (function () {
+    return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  })();
+
+  //获取窗口高度
+  window.windowsHeight = (function () {
+    return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  })();
+
+  //画布
+  var fireWorksCanvas = document.getElementById("fireworks-canvas");
+  var fireWorksContext = fireWorksCanvas.getContext('2d');
+
+  //设置画布宽高等于页面大小
+  fireWorksCanvas.width = window.windowsWidth;
+  fireWorksCanvas.height = window.windowsHeight;
+
+
+  function calculateDistance(p1x, p1y, p2x, p2y) {
+    var xDistance = p1x - p2x;
+    var yDistance = p1y - p2y;
+    return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
+  }
+
+  function random(min, max) {
+    return Math.random() * ( max - min ) + min;
+  }
+
+  //烟花类
+  function Firework(start_x, start_y, end_x, end_y, word) {
+    this.actual_x = start_x;
+    this.actual_y = start_y;
+
+    this.start_x = start_x;
+    this.start_y = start_y;
+    this.end_x = end_x;
+    this.end_y = end_y;
+
+    this.coordinates = [];
+    this.coordinateCount = 3;
+
+    while(this.coordinateCount--) {
+      this.coordinates.push([this.x, this.y]);
+    }
+
+    this.distanceToTarget = calculateDistance(this.start_x, this.start_y, this.end_x, this.end_y);
+
+    this.distanceTraveled = 0;
+
+    this.angle = Math.atan2(this.end_y - this.start_y, this.end_x - this.start_x);
+    this.speed = 2;
+    this.acceleration = 1.05;
+    this.brightness = random( 50, 70 );
+    this.targetRadius = 1;
+
+    this.word = word;
+  }
+
+  Firework.prototype.update = function (index) {
+    this.coordinates.pop();
+    this.coordinates.unshift([this.actual_x, this.actual_y]);
+
+    if( this.targetRadius < 8 ) {
+      this.targetRadius += 0.3;
+    } else {
+      this.targetRadius = 1;
+    }
+
+    this.speed *= this.acceleration;
+
+    var vx = Math.cos(this.angle)*this.speed, vy = Math.sin(this.angle)*this.speed;
+
+    this.distanceTraveled = calculateDistance(this.start_x, this.start_y, this.actual_x + vx, this.actual_y + vy);
+
+    if( this.distanceTraveled >= this.distanceToTarget ) {
+      createParticles(this.end_x, this.end_y);
+      fireworks.splice(index, 1);
+      texts.push(new Texts(this.end_x, this.end_y, this.word));
+    } else {
+      this.actual_x += vx;
+      this.actual_y += vy;
+    }
+  };
+
+  //绘制方法
+  Firework.prototype.draw = function () {
+    fireWorksContext.beginPath();
+    fireWorksContext.moveTo( this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ] );
+    fireWorksContext.lineTo(this.actual_x, this.actual_y);
+    fireWorksContext.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
+    fireWorksContext.stroke();
+    fireWorksContext.beginPath();
+    fireWorksContext.arc( this.end_x, this.end_y, this.targetRadius, 0, Math.PI * 2 );
+    fireWorksContext.stroke();
+  };
+
+  function Particle(x, y) {
+    this.x = x;
+    this.y = y;
+
+    this.coordinates = [];
+    this.coordinateCount = 5;
+
+    while( this.coordinateCount-- ) {
+      this.coordinates.push([this.x, this.y]);
+    }
+
+    this.angle = random(0, Math.PI * 2);
+    this.speed = random(1, 10);
+
+    this.friction = 0.95;
+    this.gravity = 1;
+
+    this.hue = random(hue - 20, hue + 20);
+    this.brightness = random(50, 80);
+    this.alpha = 1;
+    this.decay = random(0.015, 0.03);
+  }
+
+  Particle.prototype.update = function( index ) {
+    this.coordinates.pop();
+    this.coordinates.unshift([this.x, this.y]);
+    this.speed *= this.friction;
+
+    this.x += Math.cos(this.angle) * this.speed;
+    this.y += Math.sin(this.angle) * this.speed + this.gravity;
+
+    this.alpha -= this.decay;
+
+    if(this.alpha <= this.decay) {
+      particles.splice(index, 1);
+    }
+  };
+
+  Particle.prototype.draw = function() {
+    fireWorksContext.beginPath();
+    fireWorksContext.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+    fireWorksContext.lineTo(this.x, this.y);
+    fireWorksContext.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
+    fireWorksContext.stroke();
+  };
+
+  function createParticles(x, y) {
+    var particleCount = maxParticleCount;
+
+    while(particleCount--) {
+      particles.push(new Particle(x, y));
+    }
+  }
+
+  function Texts(x, y, word) {
+    this.font = 50;
+    this.x = x - Math.floor(this.font/2);
+    this.y = y + Math.floor(this.font/2);
+    this.word = word;
+    this.red = random(100, 200);
+    this.green = random(100, 200);
+    this.blue = random(100, 200);
+    this.brightness = random(50, 80);
+  }
+
+  Texts.prototype.draw = function() {
+    fireWorksContext.fillStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';;
+    fireWorksContext.font = this.font+"px STCaiyun";
+    fireWorksContext.fillText(this.word, this.x, this.y);
+  };
+
+  Texts.prototype.update = function (i) {
+    if ((i+1) % 8 === 0) {
+      texts = texts.slice(i+1);
+    }
+  };
+  var count = 0;
+  var maxCount = 40;
+  var my_list = ['天', '下', '无', '双'];
+  var x_list = [300, 500, 700, 900];
+  var my_index = 0;
+
+  //循环时钟
+  function loop() {
+    requestAnimFrame(loop);
+    nowTime = Date.now();
+    actualInterval = nowTime - prevTime;
+    if (actualInterval > interval) {
+
+      prevTime = nowTime - (actualInterval % interval);
+      //绘制
+      hue += 0.5;
+
+      fireWorksContext.globalCompositeOperation = 'destination-out';
+
+      fireWorksContext.fillStyle = 'rgba(0, 0, 0, 0.5)';
+
+      fireWorksContext.fillRect( 0, 0, window.windowsWidth, window.windowsHeight );
+
+      fireWorksContext.globalCompositeOperation = 'lighter';
+
+      if (count >= maxCount) {
+        var my_x = x_list[my_index];
+        var my_word = my_list[my_index];
+        fireworks.push(new Firework(my_x, 500, my_x, 200, my_word));
+        my_index++;
+        if (my_index > 3) {
+          my_index = 0;
+        }
+        count = 0;
+      } else {
+        count++;
+      }
+
+      var i = fireworks.length;
+
+      while(i--) {
+        fireworks[i].draw();
+        fireworks[i].update(i);
+      }
+
+      var i = particles.length;
+      var cnt = 0;
+      while(i--) {
+        particles[i].draw();
+        particles[i].update(i);
+        cnt++;
+        if (cnt >= maxParticleCount) {
+          var j = texts.length;
+          while (j-- && typeof(texts[j]) !== "undefined") {
+            texts[j].draw();
+            texts[j].update(j);
+          }
+          cnt = 0;
+        }
+      }
+
+      var i = texts.length;
+      while (i--) {
+        texts[i].draw();
+      }
+    }
+  }
+
+  window.onload = loop;
+</script>
