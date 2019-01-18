@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            时间轴
+        </title>
+        <style>
+            * {
+                margin : 0;
+                padding : 0;
+            }
+            body {
+                background : black;
+            }
+            #time-line-box {
+                width : 70em;
+                height : 30em;
+                background : pink;
+                margin : 0 auto;
+                position : relative;
+            }
+            #time-line-box>div {
+                position: absolute;
+            }
+            .time-line {
+                width: 60em;
+                height : 1em;
+                /*background : green;*/
+                float : left;
+                top : 10em;
+            }
+            .time-line .time-line-line {
+                width : 40em;
+                height : 0.5em;
+                background : red;
+                float : left;
+                position : relative;
+                top : 0.25em;
+                animation : time-line-grow linear 3s;
+            }
+            .time-line .time-line-circle {
+                width : 1em;
+                height : 1em;
+                border-radius: 0.5em;
+                background : red;
+                float : left;
+                position: relative;
+                left : -0.5em;
+            }
+
+            .time-line .time-line-circle .date-text {
+                width : 5em;
+                height : 1.5em;
+                background : green;
+                position : absolute;
+                top : -1.5em;
+            }
+
+            #time-line-box .time-line-background {
+                background : rgba(255, 255, 255, 0.3);
+                right : -1em;
+            }
+
+            #background-rect-1 {
+                width : 4em;
+                height : 4em;
+                transform: rotate(10deg);
+                animation : background-scroll 10s infinite;
+                animation-timing-function: linear;
+                top : 4em;
+            }
+
+            #background-rect-2 {
+                width : 2em;
+                height : 2em;
+                animation: background-scroll 10s infinite;
+                animation-delay: 1s;
+                animation-timing-function: linear;
+                top : 9em;
+            }
+            #background-rect-3 {
+                width : 2em;
+                height : 2em;
+                animation: background-scroll 10s infinite;
+                animation-delay: 2s;
+                animation-timing-function: linear;
+                top : 14em;
+            }
+            #background-rect-4 {
+                width : 2em;
+                height : 2em;
+                animation: background-scroll 10s infinite;
+                animation-delay: 3s;
+                animation-timing-function: linear;
+                top : 4em;
+            }
+            #background-rect-5 {
+                width : 2em;
+                height : 2em;
+                animation: background-scroll 10s infinite;
+                animation-delay: 6s;
+                animation-timing-function: linear;
+                top : 9em;
+            }
+            #background-rect-6 {
+                width : 2em;
+                height : 2em;
+                animation: background-scroll 10s infinite;
+                animation-delay: 8s;
+                animation-timing-function: linear;
+                top : 14em;
+            }
+
+            @keyframes background-scroll {
+                0% {
+                    right : -1em;
+                }
+                100% {
+                    right : 69em;
+                }
+            }
+            @keyframes time-line-grow {
+                0% {
+                    width: 0;
+                }
+                100% {
+                    width: 40em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="time-line-box">
+            <div class="time-line">
+                <div class="time-line-line">
+
+                </div>
+                <div class="time-line-circle">
+                    <div id="date-text-display" class="date-text">
+                    </div>
+                </div>
+            </div>
+            <div id="background-rect-1" class="time-line-background">
+            </div>
+            <div id="background-rect-2" class="time-line-background">
+            </div>
+            <div id="background-rect-3" class="time-line-background">
+            </div>
+            <div id="background-rect-4" class="time-line-background">
+            </div>
+            <div id="background-rect-5" class="time-line-background">
+            </div>
+            <div id="background-rect-6" class="time-line-background">
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+  //初始化参数
+  var fps = 30;
+  var nowTime = 0;
+  var prevTime = Date.now();
+  var interval = 1000 / fps;
+  var actualInterval = 0;
+
+  var cnt = 0;
+  var changeTime = 30;
+
+  //对requestAnimationFrame方法针对不同浏览器做兼容处理
+  window.requestAnimFrame = ( function() {
+    return window.requestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || function( callback ) {
+        window.setTimeout( callback, 1000 / 60 );
+      };
+
+  })();
+  window.onload = function () {
+
+    var dateText = document.getElementById('date-text-display');
+
+    dateText.innerText = Date.now();
+
+    function loop() {
+      requestAnimFrame(loop);
+      nowTime = Date.now();
+      actualInterval = nowTime - prevTime;
+      if (actualInterval > interval) {
+        prevTime = nowTime - (actualInterval % interval);
+      }
+
+      if (cnt < changeTime) {
+        // console.log(cnt);
+        cnt++;
+      } else {
+        dateText.innerText = Date.now();
+        cnt = 0;
+      }
+    }
+    loop();
+  }
+</script>
