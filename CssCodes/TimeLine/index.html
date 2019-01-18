@@ -165,6 +165,7 @@
   var actualInterval = 0;
 
   var cnt = 0;
+  var totalCnt = 0;
   var changeTime = 30;
 
   //对requestAnimationFrame方法针对不同浏览器做兼容处理
@@ -180,6 +181,7 @@
   window.onload = function () {
 
     var dateText = document.getElementById('date-text-display');
+    var backgroundRect1 = document.getElementById('background-rect-1');
 
     dateText.innerText = Date.now();
 
@@ -196,6 +198,12 @@
         cnt++;
       } else {
         dateText.innerText = Date.now();
+        if (totalCnt % 4 === 0) {
+          backgroundRect1.style.background = 'rgba(255, 255, 255, 0.2)';
+        } else {
+          backgroundRect1.style.background = 'rgba(255, 255, 255, 0.3)';
+        }
+        totalCnt++;
         cnt = 0;
       }
     }
