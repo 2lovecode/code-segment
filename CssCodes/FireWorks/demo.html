@@ -4,8 +4,13 @@
         <title>
             烟花特效
         </title>
+        <meta name="viewport" content="width=device-width" />
         <meta charset="utf-8">
         <style>
+            * {
+                margin : 0;
+                padding : 0;
+            }
             body {
                 background : #88C9C1;
                 /*background : #FFFFFF;*/
@@ -18,6 +23,9 @@
         </style>
     </head>
     <body>
+    <div style="text-align:center;clear:both">
+
+    </div>
         <canvas id="fireworks-canvas">
             您的浏览器不支持canvas标签
         </canvas>
@@ -63,9 +71,10 @@
   var fireWorksCanvas = document.getElementById("fireworks-canvas");
   var fireWorksContext = fireWorksCanvas.getContext('2d');
 
+  console.log(window.windowsWidth);
   //设置画布宽高等于页面大小
-  fireWorksCanvas.width = window.windowsWidth;
-  fireWorksCanvas.height = window.windowsHeight;
+  fireWorksCanvas.width = window.innerWidth;
+  fireWorksCanvas.height = window.innerHeight;
 
 
   function calculateDistance(p1x, p1y, p2x, p2y) {
