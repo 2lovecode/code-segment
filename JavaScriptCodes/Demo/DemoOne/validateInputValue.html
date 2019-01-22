@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            validate input value
+        </title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form id="thisForm">
+            <label>
+                username
+            </label>
+            <input type="text" id="username" name="username"/>
+            <br/>
+            <label>
+                password
+            </label>
+            <input type="password" id="password" name="password"/>
+            <br/>
+            <input type="submit" value="Submit"/>
+            <br/>
+            <span id="error-display" style="display: none">
+                亲~你输错了呢~
+            </span>
+        </form>
+    </body>
+</html>
+<script type="text/javascript">
+  var errorDisplay = document.getElementById('error-display');
+    function displayErrorMsg () {
+      errorDisplay.style.display = 'block';
+    }
+    function hideErrorMsg () {
+      errorDisplay.style.display = "none";
+    }
+    window.onload = function () {
+      var userNameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+      var thisForm = document.getElementById('thisForm');
+
+
+      thisForm.onsubmit = function () {
+        if (userNameInput.value === "admin" && passwordInput.value === "admin") {
+          window.location.href = './changeValue.html'
+        } else {
+          displayErrorMsg();
+        }
+        return false;
+      };
+
+      userNameInput.onfocus = function () {
+        hideErrorMsg();
+      };
+      passwordInput.onfocus = function () {
+        hideErrorMsg();
+      };
+    }
+</script>

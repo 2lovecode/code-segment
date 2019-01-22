@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            change value
+        </title>
+        <meta charset="utf-8">
+        <style>
+            div {
+                width : 100px;
+                height : 100px;
+                background : skyblue;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="i_like">
+            我喜欢
+        </div>
+        <div id="i_dislike">
+            我不喜欢
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+      var iLikeStr = "我喜欢";
+      var iDisLikeStr = "我不喜欢";
+
+      var iLike = document.getElementById("i_like");
+      var iDisLike = document.getElementById("i_dislike");
+
+      iLike.onclick = function () {
+        if (this.innerHTML === iLikeStr) {
+          window.location.href = './validateInputValue.html';
+        } else {
+          this.innerHTML = iLikeStr;
+          iDisLike.innerHTML = iDisLikeStr;
+        }
+      };
+      iDisLike.onclick = function (ev) {
+        if (this.innerHTML === iLikeStr) {
+          window.location.href = './validateInputValue.html';
+        } else {
+          this.innerHTML = iLikeStr;
+          iLike.innerHTML = iDisLikeStr;
+        }
+      }
+
+    }
+</script>
