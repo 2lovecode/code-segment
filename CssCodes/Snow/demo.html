@@ -10,6 +10,9 @@
             margin : 0;
             padding : 0;
         }
+        body {
+            background-color: #88C9C1;
+        }
         .snow-container {
             position: absolute;
             height: 800px;
@@ -85,16 +88,313 @@
                 transform: translate3d(15%, 100%, 0);
             }
         }
+
+        #front-box {
+            display : block;
+        }
+        #video-box {
+            width : 480px;
+            height : 480px;
+            margin : 40px auto;
+            display : none;
+        }
+
+        .time-line {
+            width : 0;
+            height : 0;
+            background : grey;
+            border-radius: 4px;
+            position : fixed;
+            z-index : 4;
+        }
+        .time-point-out {
+            width : 14px;
+            height : 14px;
+            border-radius: 8px;
+            position: fixed;
+            left : 13px;
+            top : 396px;
+            border: 1px solid grey;
+            z-index: 4;
+            background: rgba(255, 255, 255, 0);
+            animation : circle-shining linear 1.5s infinite;
+            display: none;
+        }
+        .time-point {
+            width : 14px;
+            height : 14px;
+            border-radius: 7px;
+            background : greenyellow;
+            position: fixed;
+            left : 14px;
+            top : 397px;
+            z-index: 4;
+            display: none;
+        }
+        #part-1 {
+            width : 14px;
+            height : 8px;
+            top : 400px;
+        }
+        #point-out-1 {
+            display : block;
+        }
+        #point-1 {
+            display : block;
+        }
+
+        #part-2 {
+            width : 8px;
+            height : 0;
+            top : 400px;
+            left : 304px;
+        }
+        #point-out-2 {
+            display : none;
+            top : 396px;
+            left : 300px;
+        }
+        #point-2 {
+            display : none;
+            top : 397px;
+            left : 301px;
+        }
+
+        #part-3 {
+            width : 0;
+            height : 8px;
+            top : 202px;
+            left : 315px;
+        }
+        #point-out-3 {
+            display : none;
+            top : 198px;
+            left : 300px;
+        }
+        #point-3 {
+            display : none;
+            top : 199px;
+            left : 301px;
+        }
+
+        #part-4 {
+            width : 0;
+            height : 8px;
+            top : 202px;
+            left : 615px;
+        }
+        #point-out-4 {
+            display : none;
+            top : 198px;
+            left : 600px;
+        }
+        #point-4 {
+            display : none;
+            top : 199px;
+            left : 601px;
+        }
+
+        @keyframes circle-shining {
+            0% {
+                transform: scale(1, 1);
+                background: rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1.8, 1.8);
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        video {
+            display : none;
+        }
     </style>
 </head>
 <body>
-    <div class="snow-container">
-        <div class="snow foreground"></div>
-        <div class="snow foreground layered"></div>
-        <div class="snow middleground"></div>
-        <div class="snow middleground layered"></div>
-        <div class="snow background"></div>
-        <div class="snow background layered"></div>
+    <div id="test-button" style="width:50px; height:30px;position:fixed;z-index: 5;">点击</div>
+    <div id="front-box">
+        <div class="snow-container">
+            <div class="snow foreground"></div>
+            <div class="snow foreground layered"></div>
+            <div class="snow middleground"></div>
+            <div class="snow middleground layered"></div>
+            <div class="snow background"></div>
+            <div class="snow background layered"></div>
+        </div>
+
+        <div id="part-1" class="time-line"></div>
+        <div id="point-out-1" class="time-point-out"></div>
+        <div id="point-1" class="time-point"></div>
+
+        <div id="part-2" class="time-line"></div>
+        <div id="point-out-2" class="time-point-out"></div>
+        <div id="point-2" class="time-point"></div>
+
+        <div id="part-3" class="time-line"></div>
+        <div id="point-out-3" class="time-point-out"></div>
+        <div id="point-3" class="time-point"></div>
+
+        <div id="part-4" class="time-line"></div>
+        <div id="point-out-4" class="time-point-out"></div>
+        <div id="point-4" class="time-point"></div>
+
+    </div>
+    <div id="video-box">
+        <video id="video" controls="controls" src="../Assets/videos/demo1.mp4"></video>
     </div>
 </body>
 </html>
+<script type="text/javascript">
+  //初始化参数
+  var fps = 20;
+  var nowTime = 0;
+  var prevTime = Date.now();
+  var interval = 1000 / fps;
+  var actualInterval = 0;
+
+
+  var frontBoxEle = document.getElementById("front-box");
+  var videoBoxEle = document.getElementById("video-box");
+
+  var partEle = document.getElementById("part-1");
+  var pointOutEle = document.getElementById("point-out-1");
+  var pointEle = document.getElementById("point-1");
+
+  var testButton = document.getElementById("test-button");
+
+  var stop = false;
+  var mode = 0;
+  var curWidth = 14;
+  var maxWidth = 300;
+  var curHeight = 0;
+  var maxHeight = 200;
+  var curTop = 400;
+  var curLeft = 0;
+
+  var count = 1;
+  var displayVideo = document.getElementById("video");
+  var videoSrc = "../Assets/videos/demo";
+
+
+  function myDisplay() {
+    frontBoxEle.style.display = "none";
+    videoBoxEle.style.display = "block";
+    displayVideo.style.display = "block";
+
+    // displayVideo.play();
+  }
+
+
+  function myHide() {
+    frontBoxEle.style.display = "block";
+    videoBoxEle.style.display = "none";
+    displayVideo.style.display = "none";
+  }
+
+  displayVideo.onended = function () {
+    myHide();
+    count++;
+    if (count > 4) {
+      return;
+    }
+    displayVideo.src = videoSrc+count+".mp4";
+    partEle = document.getElementById("part-"+count);
+    pointOutEle = document.getElementById("point-out-"+count);
+    pointEle = document.getElementById("point-"+count);
+    pointOutEle.style.display = "block";
+    pointEle.style.display = "block";
+    switch (count) {
+      case 1:
+        break;
+      case 2:
+        mode = 1;
+        break;
+      case 3:
+        curLeft = 300;
+        mode = 0;
+        break;
+      case 4:
+        curLeft = 600;
+        mode = 0;
+        break;
+      default:
+        window.location.href = "./demo.html";
+    }
+    stop = false;
+  };
+
+  testButton.onclick = function () {
+    // myHide();
+    count++;
+    if (count > 4) {
+      return;
+    }
+    displayVideo.src = videoSrc+count+".mp4";
+    partEle = document.getElementById("part-"+count);
+    pointOutEle = document.getElementById("point-out-"+count);
+    pointEle = document.getElementById("point-"+count);
+    switch (count) {
+      case 1:
+        break;
+      case 2:
+        mode = 1;
+        break;
+      case 3:
+        curLeft = 300;
+        mode = 0;
+        break;
+      case 4:
+        curLeft = 600;
+        mode = 0;
+        break;
+    }
+    stop = false;
+  };
+  //对requestAnimationFrame方法针对不同浏览器做兼容处理
+  window.requestAnimFrame = ( function() {
+    return window.requestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || function( callback ) {
+        window.setTimeout( callback, 1000 / 60 );
+      };
+
+  })();
+
+  function timeClick() {
+    requestAnimFrame(timeClick);
+    nowTime = Date.now();
+    actualInterval = nowTime - prevTime;
+    if (actualInterval > interval) {
+      prevTime = nowTime - (actualInterval % interval);
+
+      //具体的动作
+      if (!stop) {
+        if (mode === 0) {
+          curWidth += 1;
+          partEle.style.width = curWidth+"px";
+          pointOutEle.style.left = curLeft + curWidth+"px";
+          pointEle.style.left = curLeft + curWidth+"px";
+          if (curWidth > maxWidth) {
+            curWidth = 0;
+            stop = true;
+            myDisplay()
+          }
+        } else if (mode === 1) {
+          curHeight += 1;
+          curTop -= 1;
+          partEle.style.height = curHeight+"px";
+          partEle.style.top = curTop+"px";
+          pointOutEle.style.top = curTop+"px";
+          pointEle.style.top = curTop+"px";
+          if (curHeight > maxHeight) {
+            curHeight = 0;
+            stop = true;
+            myDisplay();
+          }
+        }
+      }
+    }
+  }
+
+  window.onload = timeClick;
+</script>
