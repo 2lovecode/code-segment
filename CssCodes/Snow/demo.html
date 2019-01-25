@@ -102,7 +102,7 @@
         .time-line {
             width : 0;
             height : 0;
-            background : grey;
+            background : rgba(244,227,181, 1);
             border-radius: 4px;
             position : fixed;
             z-index : 4;
@@ -113,8 +113,8 @@
             border-radius: 8px;
             position: fixed;
             left : 13px;
-            top : 396px;
-            border: 1px solid grey;
+            top : 596px;
+            border: 1px solid rgba(244,227,181, 1);
             z-index: 4;
             background: rgba(255, 255, 255, 0);
             animation : circle-shining linear 1.5s infinite;
@@ -124,17 +124,17 @@
             width : 14px;
             height : 14px;
             border-radius: 7px;
-            background : greenyellow;
+            background : rgba(248,185,204, 1);
             position: fixed;
             left : 14px;
-            top : 397px;
+            top : 597px;
             z-index: 4;
             display: none;
         }
         #part-1 {
             width : 14px;
             height : 8px;
-            top : 400px;
+            top : 600px;
         }
         #point-out-1 {
             display : block;
@@ -146,49 +146,66 @@
         #part-2 {
             width : 8px;
             height : 0;
-            top : 400px;
+            top : 600px;
             left : 304px;
         }
         #point-out-2 {
             display : none;
-            top : 396px;
+            top : 596px;
             left : 300px;
         }
         #point-2 {
             display : none;
-            top : 397px;
+            top : 597px;
             left : 301px;
         }
 
         #part-3 {
             width : 0;
             height : 8px;
-            top : 202px;
+            top : 402px;
             left : 315px;
         }
         #point-out-3 {
             display : none;
-            top : 198px;
+            top : 398px;
             left : 300px;
         }
         #point-3 {
             display : none;
-            top : 199px;
+            top : 399px;
             left : 301px;
         }
 
         #part-4 {
+            width : 8px;
+            height : 0;
+            top : 402px;
+            left : 604px;
+        }
+        #point-out-4 {
+            display : none;
+            top : 398px;
+            left : 600px;
+        }
+        #point-4 {
+            display : none;
+            top : 399px;
+            left : 601px;
+        }
+
+        #part-5 {
             width : 0;
             height : 8px;
             top : 202px;
             left : 615px;
         }
-        #point-out-4 {
+        #point-out-5 {
             display : none;
             top : 198px;
             left : 600px;
         }
-        #point-4 {
+        #point-5 {
             display : none;
             top : 199px;
             left : 601px;
@@ -202,6 +219,27 @@
             100% {
                 transform: scale(1.8, 1.8);
                 background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        @keyframes circle-shining-end {
+            0% {
+                transform: scale(4, 4);
+                background: rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(5, 5);
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        @keyframes skip-boll {
+            0% {
+                top : 195px;
+            }
+            50% {
+                top : 50px;
+            }
+            100% {
+                top : 195px;
             }
         }
         video {
@@ -237,6 +275,9 @@
         <div id="point-out-4" class="time-point-out"></div>
         <div id="point-4" class="time-point"></div>
 
+        <div id="part-5" class="time-line"></div>
+        <div id="point-out-5" class="time-point-out"></div>
+        <div id="point-5" class="time-point"></div>
     </div>
     <div id="video-box">
         <video id="video" controls="controls" src="../Assets/videos/demo1.mp4"></video>
@@ -245,7 +286,7 @@
 </html>
 <script type="text/javascript">
   //初始化参数
-  var fps = 20;
+  var fps = 60;
   var nowTime = 0;
   var prevTime = Date.now();
   var interval = 1000 / fps;
@@ -261,18 +302,23 @@
 
   var testButton = document.getElementById("test-button");
 
+  var boll = document.getElementById('point-5');
+  var bollOut = document.getElementById('point-out-5');
+
   var stop = false;
   var mode = 0;
   var curWidth = 14;
   var maxWidth = 300;
   var curHeight = 0;
   var maxHeight = 200;
-  var curTop = 400;
+  var curTop = 600;
   var curLeft = 0;
 
   var count = 1;
   var displayVideo = document.getElementById("video");
   var videoSrc = "../Assets/videos/demo";
+
+  var thisEnd = false;
 
 
   function myDisplay() {
@@ -280,7 +326,7 @@
     videoBoxEle.style.display = "block";
     displayVideo.style.display = "block";
 
-    // displayVideo.play();
+    displayVideo.play();
   }
 
 
@@ -290,13 +336,21 @@
     displayVideo.style.display = "none";
   }
 
+  function skipOut() {
+    boll.style.transform = "scale(4, 4)";
+    bollOut.style.animation = "circle-shining-end linear 1.5s infinite";
+  }
+
+  boll.onclick = function () {
+    window.location.href = "./fourth.html";
+  };
+
   displayVideo.onended = function () {
     myHide();
     count++;
-    if (count > 4) {
+    if (count > 5) {
       return;
     }
-    displayVideo.src = videoSrc+count+".mp4";
     partEle = document.getElementById("part-"+count);
     pointOutEle = document.getElementById("point-out-"+count);
     pointEle = document.getElementById("point-"+count);
@@ -314,10 +368,18 @@
         break;
       case 4:
         curLeft = 600;
+        mode = 1;
+        break;
+      case 5:
+        curLeft = 600;
         mode = 0;
+        thisEnd = true;
         break;
       default:
-        window.location.href = "./demo.html";
+        break;
+    }
+    if (!thisEnd) {
+      displayVideo.src = videoSrc+count+".mp4";
     }
     stop = false;
   };
@@ -325,7 +387,7 @@
   testButton.onclick = function () {
     // myHide();
     count++;
-    if (count > 4) {
+    if (count > 5) {
       return;
     }
     displayVideo.src = videoSrc+count+".mp4";
@@ -344,7 +406,7 @@
         break;
       case 4:
         curLeft = 600;
-        mode = 0;
+        mode = 1;
         break;
     }
     stop = false;
@@ -377,7 +439,11 @@
           if (curWidth > maxWidth) {
             curWidth = 0;
             stop = true;
-            myDisplay()
+            if (!thisEnd) {
+              myDisplay()
+            } else {
+              skipOut();
+            }
           }
         } else if (mode === 1) {
           curHeight += 1;
@@ -389,7 +455,9 @@
           if (curHeight > maxHeight) {
             curHeight = 0;
             stop = true;
-            myDisplay();
+            if (!thisEnd) {
+              myDisplay();
+            }
           }
         }
       }
