@@ -39,11 +39,11 @@ class StackReverseTest extends \BaseTestCase
     public function popProvider()
     {
         return [
-            'one' => [5],
-            'two' => [4],
+            'one' => [1],
+            'two' => [2],
             'three' => [3],
-            'four' => [2],
-            'five' => [1],
+            'four' => [4],
+            'five' => [5],
         ];
     }
 }

@@ -30,18 +30,26 @@ class ReverseStack
 
     protected function reverse()
     {
-        $this->popValue();
+        if ($this->stack->isEmpty()) {
+            return;
+        }
+
+        $value = $this->popValue();
+        $this->reverse();
+        $this->stack->push($value);
     }
 
     protected function popValue()
     {
-        if (!$this->stack->isEmpty()) {
-            $value = $this->stack->pop();
-            $this->popValue();
+        $value = $this->stack->pop();
+
+        if ($this->stack->isEmpty()) {
+            return $value;
         } else {
-            return;
+            $last =  $this->popValue();
+            $this->stack->push($value);
+            return $last;
         }
-        $this->stack->push($value);
     }
 
     public function pop()
