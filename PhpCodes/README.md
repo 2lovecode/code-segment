@@ -40,6 +40,8 @@
 
 - [SimpleDataBase](SimpleDataBase) : php实现的一个简单的key-value数据库
 
+- [SimpleRandom](SimpleRandom) : 简单的页面随机抽取实现
+
 - [Tests](Tests) : 单元测试代码
 
 - [TransformDataPieces](TransformDataPieces) : 将crontab的配置,例如： * * * * *,分解为散列的时间片段,实现定时功能
