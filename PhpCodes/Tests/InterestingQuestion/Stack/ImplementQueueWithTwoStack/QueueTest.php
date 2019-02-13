@@ -36,6 +36,7 @@ class QueueTest extends \BaseTestCase
             $queue->add($value);
         }
 
+        $this->assertTrue(!$queue->isEmpty());
         return $queue;
     }
 
