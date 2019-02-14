@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>反序列化</title>
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+        }
+        #my_header {
+            text-align : center;
+            margin-top : 30px;
+            margin-bottom : 30px;
+        }
+        #my_section {
+            width : 80%;
+            margin : 0 auto;
+            text-align: center;
+        }
+        #my_section p {
+            margin-bottom : 10px;
+        }
+    </style>
+    <script type="text/javascript" src="../Assets/phpSerializer.js"></script>
+    <script type="text/javascript" src="../Assets/utf.js"></script>
+</head>
+<body>
+<header id="my_header">
+    <h2>
+        序列化
+        <sup style="font-size:10px">
+            <a href="../index.html">
+                首页
+            </a>
+        </sup>
+    </h2>
+</header>
+<section id="my_section">
+    <p>
+        <textarea placeholder="输入值" id="input_value" cols="100" rows="20" style="resize:none;"></textarea>
+    </p>
+    <p>
+        <button id="my_button">序列化</button>
+    </p>
+    <p>
+        <textarea placeholder="结果" id="output_value" cols="100" rows="20" style="resize:none;"></textarea>
+    </p>
+</section>
+</body>
+</html>
+<script type="text/javascript">
+  window.onload = function () {
+    var buttonEle = document.getElementById("my_button");
+    var inputEle = document.getElementById("input_value");
+    var outputEle = document.getElementById("output_value");
+    var inputValue = "";
+    var outputValue = "";
+
+    buttonEle.onclick = function () {
+      inputValue = inputEle.value;
+
+      outputValue = serialize(inputValue);
+      outputEle.value = outputValue;
+    }
+  }
+</script>
