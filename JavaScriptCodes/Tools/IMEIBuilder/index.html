@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手机IMEI生成器</title>
+    <style>
+        * {
+            margin : 0;
+            padding : 0;
+        }
+        article {
+            width : 80%;
+            margin : 0 auto;
+        }
+        article div:nth-child(1) {
+            height : 120px;
+            padding : 20px 0;
+            text-align: center;
+        }
+        article div:nth-child(2) {
+            text-align: center;
+        }
+        article div:nth-child(1) p {
+            font-size : 12px;
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <div>
+            <label for="start_value">开始值:</label>
+            <input type="text" id="start_value" value="352541125211000">
+            <br/>
+            <label for="end_value">结束值:</label>
+            <input type="text" id="end_value" value="352541125212000">
+            <br/>
+            <p>开始值和结束值必须为15位</p>
+            <p>开始值和结束值之差小于1000</p>
+            <button id="start_btn">开始生成</button>
+        </div>
+        <div>
+            <textarea id="result_value" cols="100" rows="30" style=""></textarea>
+        </div>
+    </article>
+</body>
+</html>
+<script type="text/javascript">
+    var step = 1000;
+
+    function validate(value) {
+      var tmp = value.toString();
+      var total = 0;
+      var oddSum = 0;
+      var evenSum = 0;
+      var tmpM= 0;
+      var checkDigit = '';
+      for (var i = 0; i < 14; i++) {
+        if (i % 2 === 0) {
+          oddSum += parseInt(tmp[i]);
+        } else {
+          tmpM = parseInt(tmp[i]) * 2;
+          if (tmpM > 10) {
+            evenSum = evenSum + tmpM - 9;
+          } else {
+            evenSum += tmpM;
+          }
+        }
+      }
+      total = oddSum + evenSum;
+
+      if (total % 10 === 0) {
+        checkDigit = '0';
+      } else {
+        checkDigit = (10 - (total % 10)).toString();
+      }
+      return (tmp[14] === checkDigit);
+    }
+
+    window.onload = function () {
+      var startEle = document.getElementById("start_value");
+      var endEle = document.getElementById("end_value");
+      var btnEle = document.getElementById("start_btn");
+      var resultEle = document.getElementById("result_value");
+
+      btnEle.onclick = function () {
+        if (startEle.value.length !== 15 || endEle.value.length !== 15) {
+          alert('value must be 15 digit');
+          return false;
+        }
+
+        var startValue = parseInt(startEle.value);
+        var endValue = parseInt(endEle.value);
+
+
+        if (isNaN(startValue) || isNaN(endValue)) {
+          alert('invalid value');
+          return false;
+        }
+        if ((endValue - startValue) > step) {
+          alert('end value is too bigger than start value('+step.toString()+')');
+          return false;
+        }
+
+        var myList = "";
+
+        for (var i = startValue; i <= endValue; i++) {
+          if (validate(i)) {
+            if (myList !== "") {
+              myList = myList + ' , ' + i.toString();
+            } else {
+              myList = i.toString();
+            }
+          }
+        }
+
+        if (myList === "") {
+          alert('Empty');
+        }
+        resultEle.value = myList;
+      }
+
+    };
+</script>
