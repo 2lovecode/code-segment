@@ -28,6 +28,7 @@
   - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
 - [x] [JavaScriptCodes](JavaScriptCodes) : JavaScript
   - [x] [TencentMapApi](JavaScriptCodes/TencentMapApi) : 腾讯地图api示例
+  - [x] [Tools](JavaScriptCodes/Tools) : 一些自己写的实用工具集合[序列化 反序列化 手机IMEI生成器]
 - [x] [PhpCodes](PhpCodes):
   - [x] [AttributesChangeLog](PhpCodes/AttributesChangeLog):记录参数的一个类,该类实例化的对象可以持有一个参数池,所有出现在这个参数池中的参数都可以跟踪其值的变化.
   
