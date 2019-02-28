@@ -33,10 +33,10 @@
     <article>
         <div>
             <label for="start_value">开始值:</label>
-            <input type="text" id="start_value" value="352541125211000">
+            <input type="text" id="start_value" value="355374081112340">
             <br/>
             <label for="end_value">结束值:</label>
-            <input type="text" id="end_value" value="352541125212000">
+            <input type="text" id="end_value" value="355374081112350">
             <br/>
             <p>开始值和结束值必须为15位</p>
             <p>开始值和结束值之差小于1000</p>
@@ -63,7 +63,7 @@
           oddSum += parseInt(tmp[i]);
         } else {
           tmpM = parseInt(tmp[i]) * 2;
-          if (tmpM > 10) {
+          if (tmpM >= 10) {
             evenSum = evenSum + tmpM - 9;
           } else {
             evenSum += tmpM;
