@@ -23,6 +23,8 @@
    - [ ] [AdvancedLevel](CCodes/PatQuestionBank/AdvancedLevel) : 甲级真题
    - [ ] [BasicLevel](CCodes/PatQuestionBank/BasicLevel) : 乙级真题
    - [ ] [TopLevel](CCodes/PatQuestionBank/TopLevel) : 顶级真题
+  - [x] [RedisSourceCodeDemo](CCodes/RedisSourceCodeDemo) : 仿照redis(v5)源码写的一些帮助理解的demo
+    - [x] [SDS](CCodes/RedisSourceCodeDemo/Sds) : 简单动态字符串SDS的简单实现
   - [x] [SwapValue](CCodes/SwapValue) : 值交换
 - [x] [GoCodes](GoCodes) : Go语言
   - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
