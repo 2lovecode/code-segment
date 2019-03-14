@@ -19,6 +19,7 @@
   - [x] [DataStructureAndAlgorithm](CCodes/DataStructureAndAlgorithm) : 数据结构和算法
     - [x] [DictOrder](CCodes/DataStructureAndAlgorithm/DictOrder) : 字典序问题
     - [x] [Queue](CCodes/DataStructureAndAlgorithm/Queue) : 队列实现
+    - [x] [Stack](CCodes/DataStructureAndAlgorithm/Stack) : 栈实现
   - [x] [GetLineOperation](CCodes/GetLineOperation) : 读取标准输入
   - [x] [PatQuestionBank](CCodes/PatQuestionBank) : PAT能力考试真题题库解答 https://www.patest.cn/practice
    - [ ] [AdvancedLevel](CCodes/PatQuestionBank/AdvancedLevel) : 甲级真题
