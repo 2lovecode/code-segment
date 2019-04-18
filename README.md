@@ -137,7 +137,7 @@
 - [ ] [PythonCodes](PythonCodes) : Python
 - [x] [ShellCodes](ShellCodes) : Shell脚本
   - [x] [AutoConfigLnmpWebSite](ShellCodes/AutoConfigLnmpWebSite) : 自动配置lnmp环境站点
-  
+- [ ] [ResourceCollection](ResourceCollection) : 一些资料资源的集合(我是图书馆,只管收藏,从不看...)
 
 
 #### README 使用
