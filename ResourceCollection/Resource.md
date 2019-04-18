@@ -12,6 +12,7 @@
  4. [中国科学技术大学](https://github.com/USTC-Resource/USTC-Course)
   - 链接 ： https://github.com/USTC-Resource/USTC-Course
 
+ ---
 
 #### 找工作注意事项
  1. [互联网公司黑名单](https://github.com/shengxinjing/programmer-job-blacklist)
