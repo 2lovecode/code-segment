@@ -14,6 +14,7 @@ use PHPCodes\FakeApi\Log;
 class MyParts
 {
     protected $signal = '';
+    protected $params = [];
 
     const SCENARIO_ATP = 'atp';
     const SCENARIO_APPLY = 'apply';
@@ -31,6 +32,7 @@ class MyParts
     {
         Log::write(json_encode($params));
         $this->signal = $params['signal'] ?? '';
+        $this->params = $params;
     }
 
     public function atpCheck()
@@ -39,26 +41,57 @@ class MyParts
             'code' => 0,
             'stock' => [
                 [
-                    'pn' => 'MyTestOneR',
+                    'pn' => 'MyTestOne',
                     'sublocation' => 'one',
-                    'qty' => 0,
+                    'qty' => 100,
                 ],
                 [
-                    'pn' => 'MyTestTwoR',
+                    'pn' => 'MyTestTwo',
                     'sublocation' => 'two',
-                    'qty' => 0,
-                ],
-                [
-                    'pn' => 'MyTestThreeBP',
-                    'sublocation' => 'three',
-                    'qty' => 1,
-                ],
-                [
-                    'pn' => 'MyTestFour',
-                    'sublocation' => 'four',
-                    'qty' => 1,
-                ],
+                    'qty' => 100,
+                ]
             ]
+        ];
+    }
+
+    public function apply()
+    {
+        $parts = $this->getParamsValue("parts", []);
+        $stock = [];
+        foreach ($parts as $each) {
+            $stock[] = [
+                "pn" => $each["newPn"],
+                "pnStatus" => "0",
+                "sublocation" => "",
+                "qty" => "997"
+            ];
+        }
+        return [
+            "code" => 0,
+            "serviceOrder" => $this->getParamsValue("serviceOrder"),
+            "status" => 0,
+            "stock" => $stock,
+            "errdbmsg" => "ERROR_SUCCESS"
+        ];
+    }
+
+    public function finish()
+    {
+        return [
+            "serviceOrder" => $this->getParamsValue("serviceOrder"),
+            "status" => 1,
+            "code" => 0,
+            "errdbmsg" => "ERROR_SUCCESS"
+        ];
+    }
+
+    public function cancel()
+    {
+        return [
+            "serviceOrder" => $this->getParamsValue("serviceOrder"),
+            "status" => 1,
+            "code" => 0,
+            "errdbmsg" => "ERROR_SUCCESS"
         ];
     }
 
@@ -81,5 +114,10 @@ class MyParts
     {
         Log::write(json_encode($data));
         echo json_encode($data);
+    }
+
+    protected function getParamsValue($key, $default = '')
+    {
+        return isset($this->params[$key]) ? $this->params[$key] : $default;
     }
 }
