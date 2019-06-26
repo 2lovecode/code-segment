@@ -37,16 +37,17 @@ class MyParts
 
     public function atpCheck()
     {
+        $pn = $this->getParamsValue("pn");
         return [
             'code' => 0,
             'stock' => [
                 [
-                    'pn' => 'MyTestOne',
+                    'pn' => $pn.'-1F',
                     'sublocation' => 'one',
                     'qty' => 100,
                 ],
                 [
-                    'pn' => 'MyTestTwo',
+                    'pn' => $pn.'-2F',
                     'sublocation' => 'two',
                     'qty' => 100,
                 ]
