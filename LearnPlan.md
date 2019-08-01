@@ -9,6 +9,8 @@
 
 ## 这是？
 
+Hello
+
 这是我为了从 web 开发者（自学、非计算机科学学位）蜕变至 Google 软件工程师所制定的计划，其内容历时数月。
 
 ![白板上编程 ———— 来自 HBO 频道的剧集，“硅谷”](https://dng5l3qzreal6.cloudfront.net/2016/Aug/coding_board_small-1470866369118.jpg)
