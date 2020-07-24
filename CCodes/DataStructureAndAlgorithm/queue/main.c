@@ -3,18 +3,18 @@
 #include<string.h>
 #include<malloc.h>
 
-#include "myQueue.h"
+#include "my_queue.h"
 
 
 
 int main() {
-    myAnimal *a;
-    myAnimal *b;
+    MyAnimal *a;
+    MyAnimal *b;
 
-    myQueue *queue;
+    MyQueue *queue;
 
-    a = malloc(sizeof(struct myAnimal));
-    b = malloc(sizeof(struct myAnimal));
+    a = malloc(sizeof(struct MyAnimal));
+    b = malloc(sizeof(struct MyAnimal));
 
     a->type = 1;
     a->name = "cat";
@@ -31,7 +31,7 @@ int main() {
     enQueue(queue, a);
     enQueue(queue, b);
 
-    myAnimal *myHeadValue = (myAnimal *)(deQueue(queue));
+    MyAnimal *myHeadValue = (MyAnimal *)(deQueue(queue));
 
 
     printf("%d : %s\n", myHeadValue->type, myHeadValue->name);

@@ -1,14 +1,14 @@
 #include <stdlib.h>
-#include "myQueue.h"
+#include "my_queue.h"
 
 myQueue *createNewQueue() {
-    myQueue *queue = NULL;
-    queue = (myQueue *)malloc(sizeof(struct myQueue));
+    MyQueue *queue = NULL;
+    queue = (MyQueue *)malloc(sizeof(struct MyQueue));
     queue->head = 0;
     queue->tail = 0;
 }
 
-bool isEmpty(myQueue *queue) {
+bool isEmpty(MyQueue *queue) {
     if (queue == NULL) {
         return true;
     }
@@ -19,13 +19,13 @@ bool isEmpty(myQueue *queue) {
     return false;
 }
 
-void enQueue(myQueue *queue, void *data) {
-    qNode *newNode = NULL;
+void enQueue(MyQueue *queue, void *data) {
+    QNode *newNode = NULL;
 
     if (queue == NULL) {
         return;
     }
-    newNode = (qNode *)malloc(sizeof(struct qNode));
+    newNode = (QNode *)malloc(sizeof(struct QNode));
 
     if (newNode == NULL) {
         return;
@@ -45,7 +45,7 @@ void enQueue(myQueue *queue, void *data) {
     }
 }
 
-void *deQueue(myQueue *queue) {
+void *deQueue(MyQueue *queue) {
     if (queue == NULL) {
         return NULL;
     }
@@ -54,7 +54,7 @@ void *deQueue(myQueue *queue) {
     }
     void *value = queue->head->value;
 
-    qNode *tmp = queue->head;
+    QNode *tmp = queue->head;
 
     queue->head = queue->head->next;
     if (queue->head != 0) {
@@ -65,9 +65,9 @@ void *deQueue(myQueue *queue) {
     return value;
 }
 
-void destroyQueue(myQueue *queue) {
-    qNode *tmp = queue->head;
-    qNode *now = queue->head;
+void destroyQueue(MyQueue *queue) {
+    QNode *tmp = queue->head;
+    QNode *now = queue->head;
 
     while(now) {
         tmp = now;
