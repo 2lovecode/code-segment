@@ -3,8 +3,9 @@
 
 #### 安装
 - PHP安装
-    对于php程序员,您可以在项目的composer.json文件的require中添加 "2lovecode/code-segment" : "dev-master" ,然后执行composer update,安装此库.
-    不过只有PhpCodes文件夹中的部分类您可以在自己的项目中通过自动加载使用,其它文件仅供查看参考.
+    - composer.json文件的require中添加 "2lovecode/code-segment" : "dev-master"
+    - 执行composer update
+    - PhpCodes文件夹中的部分类您可以在自己的项目中通过自动加载使用,其它语言片段文件仅供查看参考.
     
 - 暂不支持其它语言包管理器的安装,您可以直接git clone git@github.com:2lovecode/code-segment.git 直接下载.
 
