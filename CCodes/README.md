@@ -1,5 +1,7 @@
 #### 一些c语言代码片段
 
+#### **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
+
 - Calculator : 计算器实现
 - DataStructureAndAlgorithm : 数据结构和算法
     - DictOrder : 字典序问题

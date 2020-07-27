@@ -8,33 +8,12 @@
     
 - 暂不支持其它语言包管理器的安装,您可以直接git clone git@github.com:2lovecode/code-segment.git 直接下载.
 
+- Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
+
+- c语言  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
 
 
 #### 目录：
-- [x] [AwkCodes](AwkCodes) : awk语言
-  - [x] [Calendar](AwkCodes/Calendar) : 日历实现
-  - [x] [InterActiveStrReplace](AwkCodes/InterActiveStrReplace) : 实时接收输入并输出
-  - [x] [PersonInfo](AwkCodes/PersonInfo) : 简单数据库实现,以个人信息为模型
-- [x] [CCodes](CCodes) : c语言  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
-  - [x] [Calculator](CCodes/Calculator) : 计算器实现
-  - [x] [DataStructureAndAlgorithm](CCodes/DataStructureAndAlgorithm) : 数据结构和算法
-    - [x] [dict_order](CCodes/DataStructureAndAlgorithm/dict_order) : 字典序问题
-    - [x] [queue](CCodes/DataStructureAndAlgorithm/queue) : 队列实现
-    - [x] [skip_list](CCodes/DataStructureAndAlgorithm/skip_list) : 跳跃表实现【参考redis实现】
-    - [x] [stack](CCodes/DataStructureAndAlgorithm/stack) : 栈实现
-  - [x] [GetLineOperation](CCodes/GetLineOperation) : 读取标准输入
-  - [x] [PatQuestionBank](CCodes/PatQuestionBank) : PAT能力考试真题题库解答 https://www.patest.cn/practice
-   - [ ] [AdvancedLevel](CCodes/PatQuestionBank/AdvancedLevel) : 甲级真题
-   - [ ] [BasicLevel](CCodes/PatQuestionBank/BasicLevel) : 乙级真题
-   - [ ] [TopLevel](CCodes/PatQuestionBank/TopLevel) : 顶级真题
-  - [x] [RedisSourceCodeDemo](CCodes/RedisSourceCodeDemo) : 仿照redis(v5)源码写的一些帮助理解的demo
-    - [x] [SDS](CCodes/RedisSourceCodeDemo/Sds) : 简单动态字符串SDS的简单实现
-  - [x] [SwapValue](CCodes/SwapValue) : 值交换
-- [x] [GoCodes](GoCodes) : Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
-  - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
-- [x] [JavaScriptCodes](JavaScriptCodes) : JavaScript
-  - [x] [TencentMapApi](JavaScriptCodes/TencentMapApi) : 腾讯地图api示例
-  - [x] [Tools](JavaScriptCodes/Tools) : 一些自己写的实用工具集合[序列化 反序列化 手机IMEI生成器]
 - [x] [PhpCodes](PhpCodes):
   - [x] [AttributesChangeLog](PhpCodes/AttributesChangeLog):记录参数的一个类,该类实例化的对象可以持有一个参数池,所有出现在这个参数池中的参数都可以跟踪其值的变化.
   
@@ -136,6 +115,30 @@
     - [x] [Md5Shortener](PhpCodes/UrlShortener/Md5Shortener.php) : 摘要法
     
   - [x] [UsefulTools](PhpCodes/UsefulTools):一些有趣的工具
+- [x] [AwkCodes](AwkCodes) : awk语言
+  - [x] [Calendar](AwkCodes/Calendar) : 日历实现
+  - [x] [InterActiveStrReplace](AwkCodes/InterActiveStrReplace) : 实时接收输入并输出
+  - [x] [PersonInfo](AwkCodes/PersonInfo) : 简单数据库实现,以个人信息为模型
+- [x] [CCodes](CCodes) : c语言  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
+  - [x] [Calculator](CCodes/Calculator) : 计算器实现
+  - [x] [DataStructureAndAlgorithm](CCodes/DataStructureAndAlgorithm) : 数据结构和算法
+    - [x] [dict_order](CCodes/DataStructureAndAlgorithm/dict_order) : 字典序问题
+    - [x] [queue](CCodes/DataStructureAndAlgorithm/queue) : 队列实现
+    - [x] [skip_list](CCodes/DataStructureAndAlgorithm/skip_list) : 跳跃表实现【参考redis实现】
+    - [x] [stack](CCodes/DataStructureAndAlgorithm/stack) : 栈实现
+  - [x] [GetLineOperation](CCodes/GetLineOperation) : 读取标准输入
+  - [x] [PatQuestionBank](CCodes/PatQuestionBank) : PAT能力考试真题题库解答 https://www.patest.cn/practice
+   - [ ] [AdvancedLevel](CCodes/PatQuestionBank/AdvancedLevel) : 甲级真题
+   - [ ] [BasicLevel](CCodes/PatQuestionBank/BasicLevel) : 乙级真题
+   - [ ] [TopLevel](CCodes/PatQuestionBank/TopLevel) : 顶级真题
+  - [x] [RedisSourceCodeDemo](CCodes/RedisSourceCodeDemo) : 仿照redis(v5)源码写的一些帮助理解的demo
+    - [x] [SDS](CCodes/RedisSourceCodeDemo/Sds) : 简单动态字符串SDS的简单实现
+  - [x] [SwapValue](CCodes/SwapValue) : 值交换
+- [x] [GoCodes](GoCodes) : Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
+  - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
+- [x] [JavaScriptCodes](JavaScriptCodes) : JavaScript
+  - [x] [TencentMapApi](JavaScriptCodes/TencentMapApi) : 腾讯地图api示例
+  - [x] [Tools](JavaScriptCodes/Tools) : 一些自己写的实用工具集合[序列化 反序列化 手机IMEI生成器]
 - [x] [ShellCodes](ShellCodes) : Shell脚本
   - [x] [AutoConfigLnmpWebSite](ShellCodes/AutoConfigLnmpWebSite) : 自动配置lnmp环境站点
 - [ ] [ResourceCollection](ResourceCollection) : 一些资料资源的集合(我是图书馆,只管收藏,从不看...)
