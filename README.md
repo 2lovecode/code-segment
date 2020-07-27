@@ -8,9 +8,9 @@
     
 - 暂不支持其它语言包管理器的安装,您可以直接git clone git@github.com:2lovecode/code-segment.git 直接下载.
 
-- Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
+- Go语言(GoCodes) **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
 
-- c语言  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
+- C语言(CCodes)  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
 
 
 #### 目录：
