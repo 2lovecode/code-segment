@@ -120,7 +120,7 @@
   - [x] [Calendar](AwkCodes/Calendar) : 日历实现
   - [x] [InterActiveStrReplace](AwkCodes/InterActiveStrReplace) : 实时接收输入并输出
   - [x] [PersonInfo](AwkCodes/PersonInfo) : 简单数据库实现,以个人信息为模型
-- [x] [CCodes](CCodes) : c语言  **<font color=red>已迁移至 [graffito-c](https://github.com/2lovecode/graffito-c)</font>**
+- [x] [CCodes](CCodes) : ~~c语言~~  **已迁移至** :triangular_flag_on_post:  [**graffito-c**](https://github.com/2lovecode/graffito-c)
   - [x] [Calculator](CCodes/Calculator) : 计算器实现
   - [x] [DataStructureAndAlgorithm](CCodes/DataStructureAndAlgorithm) : 数据结构和算法
     - [x] [dict_order](CCodes/DataStructureAndAlgorithm/dict_order) : 字典序问题
@@ -135,7 +135,7 @@
   - [x] [RedisSourceCodeDemo](CCodes/RedisSourceCodeDemo) : 仿照redis(v5)源码写的一些帮助理解的demo
     - [x] [SDS](CCodes/RedisSourceCodeDemo/Sds) : 简单动态字符串SDS的简单实现
   - [x] [SwapValue](CCodes/SwapValue) : 值交换
-- [x] [GoCodes](GoCodes) : ~~Go语言~~ 已迁移至 :arrow_right: [graffito](https://github.com/2lovecode/graffito)
+- [x] [GoCodes](GoCodes) : ~~Go语言~~ **已迁移至** :triangular_flag_on_post:  [**graffito**](https://github.com/2lovecode/graffito)
   - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
 - [x] [JavaScriptCodes](JavaScriptCodes) : JavaScript
   - [x] [TencentMapApi](JavaScriptCodes/TencentMapApi) : 腾讯地图api示例
