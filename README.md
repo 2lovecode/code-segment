@@ -135,7 +135,7 @@
   - [x] [RedisSourceCodeDemo](CCodes/RedisSourceCodeDemo) : 仿照redis(v5)源码写的一些帮助理解的demo
     - [x] [SDS](CCodes/RedisSourceCodeDemo/Sds) : 简单动态字符串SDS的简单实现
   - [x] [SwapValue](CCodes/SwapValue) : 值交换
-- [x] [GoCodes](GoCodes) : Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
+- [x] [GoCodes](~~GoCodes~~) : Go语言 **<font color=red>已迁移至 [graffito](https://github.com/2lovecode/graffito)</font>**
   - [x] [Timer](GoCodes/Timer) : 基于redis zset list 实现的定时器.
 - [x] [JavaScriptCodes](JavaScriptCodes) : JavaScript
   - [x] [TencentMapApi](JavaScriptCodes/TencentMapApi) : 腾讯地图api示例
