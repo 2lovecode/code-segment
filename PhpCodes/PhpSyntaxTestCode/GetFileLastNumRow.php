@@ -35,6 +35,9 @@ class GetFileLastNumRow
 					$rowCount++;
 				}
 				$contents = $str.$contents;
+                if (ftell($handle) == 1) {
+                    break;
+                }
 				fseek($handle, -2, SEEK_CUR);
 			} while ($rowCount < $this->rowNum);
 			var_export(trim($contents, "\n"));
