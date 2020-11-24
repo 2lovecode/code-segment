@@ -148,4 +148,77 @@
 #### README 使用
  - 最外层展示所有层的目录树状结构,描述较简略
  - 各层目录下,只展示当前层包含的目录,描述较详细 
+ 
+ 
+#### 收集的一些项目资源地址
 
+###### Golang
+   - [go优秀项目集合：go-awesome](https://github.com/shockerli/go-awesome)
+   - [go开源项目集合：golang-open-source-projects](https://github.com/hackstoic/golang-open-source-projects)
+   - [uber依赖注入包：dig](https://github.com/uber-go/dig)
+   - [微服务框架：kit](https://github.com/go-kit/kit)
+   - [bilibili的go微服务框架工具：kratos](https://github.com/go-kratos/kratos)
+   - [测试包：goconvey](https://github.com/smartystreets/goconvey)
+   - [json编解码包：go-simplejson](https://github.com/bitly/go-simplejson)
+   - [代码安全检测包：gosec](https://github.com/securego/gosec)
+   - [uber依赖注入包：dig](https://github.com/uber-go/dig)
+   - [依赖注入库：inject](https://github.com/codegangsta/inject)
+   - [各算法实现：TheAlgorithms](https://github.com/TheAlgorithms/Go)
+   - [go每日一库：go-daily-lib](https://github.com/darjun/go-daily-lib)
+   - [内网穿透代理服务器：nps](https://github.com/ehang-io/nps)
+   - [内网穿透代理服务器：frp](https://github.com/fatedier/frp)
+   
+###### C
+   - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
+###### Python
+   - [路径规划算法：PathPlanning](https://github.com/zhm-real/PathPlanning)
+   - [各语言的帮助文档快速查询：cheat.sh](https://github.com/chubin/cheat.sh)
+###### PHP
+   - [yii2干货集：awesome-yii2](https://github.com/forecho/awesome-yii2)
+   - [php面试：interview](https://github.com/wanglelecc/interview)
+   - [docker开发环境yml文件：laradock](https://github.com/laradock/laradock)
+###### Java
+   - [mysql增量binlog订阅&消费组件：canal](https://github.com/alibaba/canal)
+###### Javascript
+   - [js实现各个算法：javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
+   - [vue+el实现的后台管理项目：vue2-manage](https://github.com/bailicangdu/vue2-manage)
+   - [vue+el实现的后台管理项目：vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+   - [pc客户端开发框架：electron](https://github.com/electron/electron)
+   - [electron开发的优秀项目：awesome-electron](https://github.com/sindresorhus/awesome-electron)
+   - [算法可视化：algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)
+###### 编辑器or方便的工具和插件
+   - [让你只用键盘就能操作浏览器的神奇插件：vimium](https://github.com/philc/vimium)
+   - [一款管理本地hosts文件的客户端工具：SwitchHosts](https://github.com/oldj/SwitchHosts)
+   - [一键配置vim编辑器：spf13-vim](https://github.com/spf13/spf13-vim)
+   - [一款强大免费且开源的画流程图的软件：drawio](https://github.com/jgraph/drawio-desktop)
+   - [api请求客户端代理工具：hoppscotch](https://github.com/hoppscotch/hoppscotch)
+   - [美化你的shell客户端：ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+   - [docker知识备忘：docker-cheat-sheet](https://github.com/wsargent/docker-cheat-sheet)
+   - [终端docker管理软件：lazydocker](https://github.com/jesseduffield/lazydocker)
+###### 图像&视频处理
+   - [实时视频插帧算法：arXiv2020-RIFE](https://github.com/hzwer/arXiv2020-RIFE)
+   
+###### 机器学习&人工智能&大数据
+   - [ai学习指南：AiLearning](https://github.com/apachecn/AiLearning)
+   - [机器学习框架：tensorflow](https://github.com/tensorflow/tensorflow)
+   - [tensorflow学习教程：TensorFlow-Course](https://github.com/instillai/TensorFlow-Course)
+   - [30天学会tensorflow：eat_tensorflow2_in_30_days](https://github.com/lyhue1991/eat_tensorflow2_in_30_days)
+   - [pytorch项目集合：Awesome-pytorch-list](https://github.com/bharathgs/Awesome-pytorch-list)
+   - [自然语言处理方面的最新进展：NLP-progress](https://github.com/sebastianruder/NLP-progress)
+
+###### 操作系统
+   - [简单的xv6操作系统：xv6-public](https://github.com/mit-pdos/xv6-public)
+   - [xv6中文文档：xv6-chinese](https://github.com/ranxian/xv6-chinese)
+   - [xv6中文文档：xv6-book-chinese](https://github.com/deyuhua/xv6-book-chinese)
+###### 学习教程
+   - [计算机速成课：Crash-Course-Computer-Science-Chinese](https://github.com/1c7/Crash-Course-Computer-Science-Chinese)
+   - [web开发者路线图：developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
+   - [面试与算法心得：The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July)
+   - [CS面试路线图：CS-Interview-Knowledge-Map](https://github.com/InterviewMap/CS-Interview-Knowledge-Map)
+   - [CS面试知识：coding-interview-university](https://github.com/jwasham/coding-interview-university)
+   - [ai学习教程：ai-edu](https://github.com/microsoft/ai-edu)
+   - [各大学课程资源：A-to-Z-Resources-for-Students](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
+   - [计算机科学课程：computer-science](https://github.com/ossu/computer-science)
+   - [优秀的中文项目：GitHub-Chinese-Top-Charts](https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts)
+   - [编程类书籍：free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)
+   
