@@ -222,4 +222,10 @@
    - [计算机科学课程：computer-science](https://github.com/ossu/computer-science)
    - [优秀的中文项目：GitHub-Chinese-Top-Charts](https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts)
    - [编程类书籍：free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)
+
+###### 树莓派
+   - [树莓派论坛](https://shumeipai.nxez.com/)
+   - [控制各种硬件的Python库](https://github.com/adafruit)
+   - [点亮LCD](https://xingxiang.me/blog/843) [LCD库](https://github.com/lifanxi/rpimenu)
+   - [另一个LCD库，可以适配点亮LCD](https://github.com/adafruit/Adafruit_Python_CharLCD)
    
