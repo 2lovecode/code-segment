@@ -168,6 +168,8 @@
    - [go每日一库：go-daily-lib](https://github.com/darjun/go-daily-lib)
    - [内网穿透代理服务器：nps](https://github.com/ehang-io/nps)
    - [内网穿透代理服务器：frp](https://github.com/fatedier/frp)
+   - [开源的轻量级对象存储服务：minio](https://github.com/minio/minio)
+   - [minio中文文档](https://docs.min.io/cn/)
    
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
