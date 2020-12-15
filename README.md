@@ -154,6 +154,8 @@
 #### 收集的一些项目资源地址
 
 ###### Golang
+   - [golang入门指南](https://github.com/unknwon/the-way-to-go_ZH_CN)
+   - [煎鱼的gin使用示例：go-gin-example](https://github.com/eddycjy/go-gin-example)
    - [go优秀项目集合：go-awesome](https://github.com/shockerli/go-awesome)
    - [go开源项目集合：golang-open-source-projects](https://github.com/hackstoic/golang-open-source-projects)
    - [uber依赖注入包：dig](https://github.com/uber-go/dig)
@@ -170,7 +172,10 @@
    - [内网穿透代理服务器：frp](https://github.com/fatedier/frp)
    - [开源的轻量级对象存储服务：minio](https://github.com/minio/minio)
    - [minio中文文档](https://docs.min.io/cn/)
-   
+   - [浏览器上访问你的服务器资源 filebrowser](https://github.com/filebrowser/filebrowser)
+   - [golang设计模式](https://github.com/senghoo/golang-design-pattern)
+   - [微服务管理工具 istio](https://github.com/istio/istio)
+   - [golang 建站指导手册](https://github.com/astaxie/build-web-application-with-golang)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
@@ -188,7 +193,10 @@
    - [vue+el实现的后台管理项目：vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
    - [pc客户端开发框架：electron](https://github.com/electron/electron)
    - [electron开发的优秀项目：awesome-electron](https://github.com/sindresorhus/awesome-electron)
+   - [electron集成vue：electron-vue](https://github.com/SimulatedGREG/electron-vue)
    - [算法可视化：algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)
+   - [图片裁剪js库](https://github.com/fengyuanchen/cropperjs)
+   - [markdown编辑器：marktext](https://github.com/marktext/marktext)
 ###### 编辑器or方便的工具和插件
    - [让你只用键盘就能操作浏览器的神奇插件：vimium](https://github.com/philc/vimium)
    - [一款管理本地hosts文件的客户端工具：SwitchHosts](https://github.com/oldj/SwitchHosts)
@@ -224,6 +232,7 @@
    - [计算机科学课程：computer-science](https://github.com/ossu/computer-science)
    - [优秀的中文项目：GitHub-Chinese-Top-Charts](https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts)
    - [编程类书籍：free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)
+   - [面试大全](https://github.com/0voice/interview_internal_reference)
 
 ###### 树莓派
    - [树莓派论坛](https://shumeipai.nxez.com/)
