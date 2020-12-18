@@ -154,6 +154,7 @@
 #### 收集的一些项目资源地址
 
 ###### Golang
+   - [go多版本管理器：g ](https://github.com/voidint/g)（刚入手，正在体验）
    - [golang入门指南](https://github.com/unknwon/the-way-to-go_ZH_CN)
    - [煎鱼的gin使用示例：go-gin-example](https://github.com/eddycjy/go-gin-example)
    - [go优秀项目集合：go-awesome](https://github.com/shockerli/go-awesome)
