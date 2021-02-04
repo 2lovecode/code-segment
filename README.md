@@ -178,6 +178,7 @@
    - [golang设计模式](https://github.com/senghoo/golang-design-pattern)
    - [微服务管理工具 istio](https://github.com/istio/istio)
    - [golang 建站指导手册](https://github.com/astaxie/build-web-application-with-golang)
+   - [解析sql的demo](https://github.com/marianogappa/sqlparser)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
