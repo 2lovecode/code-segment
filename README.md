@@ -179,6 +179,7 @@
    - [微服务管理工具 istio](https://github.com/istio/istio)
    - [golang 建站指导手册](https://github.com/astaxie/build-web-application-with-golang)
    - [解析sql的demo](https://github.com/marianogappa/sqlparser)
+   - [规则引擎](https://github.com/bilibili/gengine)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
@@ -224,6 +225,7 @@
    - [简单的xv6操作系统：xv6-public](https://github.com/mit-pdos/xv6-public)
    - [xv6中文文档：xv6-chinese](https://github.com/ranxian/xv6-chinese)
    - [xv6中文文档：xv6-book-chinese](https://github.com/deyuhua/xv6-book-chinese)
+   - [Rust实现os](https://github.com/rcore-os/rCore)
 ###### 学习教程
    - [计算机速成课：Crash-Course-Computer-Science-Chinese](https://github.com/1c7/Crash-Course-Computer-Science-Chinese)
    - [web开发者路线图：developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
