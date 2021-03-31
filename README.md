@@ -180,6 +180,7 @@
    - [golang 建站指导手册](https://github.com/astaxie/build-web-application-with-golang)
    - [解析sql的demo](https://github.com/marianogappa/sqlparser)
    - [规则引擎](https://github.com/bilibili/gengine)
+   - [流量复制工具](https://github.com/buger/goreplay)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
