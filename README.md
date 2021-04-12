@@ -239,6 +239,7 @@
    - [优秀的中文项目：GitHub-Chinese-Top-Charts](https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts)
    - [编程类书籍：free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)
    - [面试大全](https://github.com/0voice/interview_internal_reference)
+   - [算法](https://github.com/labuladong/fucking-algorithm)
 
 ###### 树莓派
    - [树莓派论坛](https://shumeipai.nxez.com/)
