@@ -221,6 +221,7 @@
    - [30天学会tensorflow：eat_tensorflow2_in_30_days](https://github.com/lyhue1991/eat_tensorflow2_in_30_days)
    - [pytorch项目集合：Awesome-pytorch-list](https://github.com/bharathgs/Awesome-pytorch-list)
    - [自然语言处理方面的最新进展：NLP-progress](https://github.com/sebastianruder/NLP-progress)
+   - [行人识别](https://github.com/michuanhaohao/ReID_tutorial_slides)
 
 ###### 操作系统
    - [简单的xv6操作系统：xv6-public](https://github.com/mit-pdos/xv6-public)
