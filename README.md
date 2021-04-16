@@ -181,6 +181,8 @@
    - [解析sql的demo](https://github.com/marianogappa/sqlparser)
    - [规则引擎](https://github.com/bilibili/gengine)
    - [流量复制工具](https://github.com/buger/goreplay)
+   - [b-tree](https://github.com/google/btree)
+   - [b+tree](https://github.com/timtadh/fs2)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
