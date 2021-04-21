@@ -216,6 +216,7 @@
    - [终端docker管理软件：lazydocker](https://github.com/jesseduffield/lazydocker)
 ###### 图像&视频处理
    - [实时视频插帧算法：arXiv2020-RIFE](https://github.com/hzwer/arXiv2020-RIFE)
+   - [计算机图形入门:graphics-workshop](https://github.com/ekzhang/graphics-workshop)
    
 ###### 机器学习&人工智能&大数据
    - [ai学习指南：AiLearning](https://github.com/apachecn/AiLearning)
