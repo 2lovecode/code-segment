@@ -183,6 +183,7 @@
    - [流量复制工具](https://github.com/buger/goreplay)
    - [b-tree](https://github.com/google/btree)
    - [b+tree](https://github.com/timtadh/fs2)
+   - [golang-awesome](https://github.com/xiaobaiTech/golangFamily)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
 ###### Python
