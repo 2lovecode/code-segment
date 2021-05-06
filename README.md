@@ -154,6 +154,7 @@
 #### 收集的一些项目资源地址
 
 ###### Golang
+   - [Go-Questions深入学习golang必备](https://github.com/golang-design/Go-Questions)
    - [go多版本管理器：g ](https://github.com/voidint/g)（刚入手，正在体验）
    - [golang入门指南](https://github.com/unknwon/the-way-to-go_ZH_CN)
    - [煎鱼的gin使用示例：go-gin-example](https://github.com/eddycjy/go-gin-example)
