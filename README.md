@@ -254,3 +254,5 @@
    - [点亮LCD](https://xingxiang.me/blog/843) [LCD库](https://github.com/lifanxi/rpimenu)
    - [另一个LCD库，可以适配点亮LCD](https://github.com/adafruit/Adafruit_Python_CharLCD)
    
+###### 其他
+   - [awesome-graphql](https://github.com/chentsulin/awesome-graphql)
