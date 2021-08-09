@@ -155,6 +155,7 @@
 
 ###### Golang
    - [Go-Questions深入学习golang必备](https://github.com/golang-design/Go-Questions)
+   - [awesome-go](https://github.com/avelino/awesome-go)
    - [go多版本管理器：g ](https://github.com/voidint/g)（刚入手，正在体验）
    - [golang入门指南](https://github.com/unknwon/the-way-to-go_ZH_CN)
    - [煎鱼的gin使用示例：go-gin-example](https://github.com/eddycjy/go-gin-example)
@@ -222,6 +223,7 @@
    - [计算机图形入门:graphics-workshop](https://github.com/ekzhang/graphics-workshop)
    
 ###### 机器学习&人工智能&大数据
+   - [机器学习入门学习](https://github.com/microsoft/ML-For-Beginners)
    - [ai学习指南：AiLearning](https://github.com/apachecn/AiLearning)
    - [机器学习框架：tensorflow](https://github.com/tensorflow/tensorflow)
    - [tensorflow学习教程：TensorFlow-Course](https://github.com/instillai/TensorFlow-Course)
@@ -257,3 +259,4 @@
    
 ###### 其他
    - [awesome-graphql](https://github.com/chentsulin/awesome-graphql)
+   - [IoT入门学习](https://github.com/microsoft/IoT-For-Beginners)
