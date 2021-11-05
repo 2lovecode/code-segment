@@ -210,6 +210,8 @@
    - [markdown编辑器：marktext](https://github.com/marktext/marktext)
    - [游戏引擎:Babylon](https://github.com/BabylonJS/Babylon.js)
    - [JSON编辑器](https://github.com/josdejong/jsoneditor)
+   - [服务监控工具](https://github.com/louislam/uptime-kuma)
+   
 ###### 编辑器or方便的工具和插件
    - [让你只用键盘就能操作浏览器的神奇插件：vimium](https://github.com/philc/vimium)
    - [一款管理本地hosts文件的客户端工具：SwitchHosts](https://github.com/oldj/SwitchHosts)
