@@ -1,18 +1,19 @@
 package main
-import (   
-    . "github.com/lxn/walk/declarative"
-)
 
 import (
-	"log"
 	"fmt"
 	"io/ioutil"
-)
-import b64 "encoding/base64"
-import (
+	"log"
+
+	. "github.com/lxn/walk/declarative"
+
+	b64 "encoding/base64"
+
 	"github.com/lxn/walk"
 )
+
 var base64str = ""
+
 func main() {
 	mw := new(MyMainWindow)
 	var openAction *walk.Action
@@ -26,9 +27,9 @@ func main() {
 				Text: "&File",
 				Items: []MenuItem{
 					Action{
-						AssignTo:    &openAction,
-						Text:        "&Open",
-						Image:       "../img/open.png",
+						AssignTo: &openAction,
+						Text:     "&Open",
+						Image:    "../img/open.png",
 						OnTriggered: func() {
 							mw.openAction_Triggered()
 							outTE.SetText(fmt.Sprintf("%+v", base64str))
@@ -88,13 +89,13 @@ func (mw *MyMainWindow) openImage() error {
 }
 
 func Fileread(fileName string, handler func(string)) error {
-	
+
 	buf, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		fmt.Println(err)
 	}
 	uEnc := b64.StdEncoding.EncodeToString(buf)
-		
+
 	handler(uEnc)
 	return nil
 }
