@@ -267,3 +267,4 @@
 ###### 其他
    - [awesome-graphql](https://github.com/chentsulin/awesome-graphql)
    - [IoT入门学习](https://github.com/microsoft/IoT-For-Beginners)
+   - [硬件](https://github.com/flipperdevices/flipperzero-firmware)
