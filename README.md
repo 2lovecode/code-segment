@@ -190,6 +190,8 @@
    - [rustdesk：类似TeamVeiwer的远程桌面工具，提供免费中继服务器，也可自己搭建](https://github.com/rustdesk/rustdesk)
 ###### C
    - [一款消息队列产品：beanstalkd](https://github.com/beanstalkd/beanstalkd)
+###### Rust
+   - [lapce - 开源IDE](https://github.com/lapce/lapce)
 ###### Python
    - [路径规划算法：PathPlanning](https://github.com/zhm-real/PathPlanning)
    - [各语言的帮助文档快速查询：cheat.sh](https://github.com/chubin/cheat.sh)
@@ -268,3 +270,4 @@
    - [awesome-graphql](https://github.com/chentsulin/awesome-graphql)
    - [IoT入门学习](https://github.com/microsoft/IoT-For-Beginners)
    - [硬件](https://github.com/flipperdevices/flipperzero-firmware)
+   - [从零创建游戏引擎](https://github.com/ThisisGame/cpp-game-engine-book)
