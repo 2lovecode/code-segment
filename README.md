@@ -186,6 +186,7 @@
    - [b-tree](https://github.com/google/btree)
    - [b+tree](https://github.com/timtadh/fs2)
    - [golang-awesome](https://github.com/xiaobaiTech/golangFamily)
+   - [conc-Go优雅并发处理工具包](https://github.com/sourcegraph/conc)
 ###### Rust
    - [rustdesk：类似TeamVeiwer的远程桌面工具，提供免费中继服务器，也可自己搭建](https://github.com/rustdesk/rustdesk)
 ###### C
