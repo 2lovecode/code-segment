@@ -218,6 +218,7 @@
    - [JSON编辑器](https://github.com/josdejong/jsoneditor)
    - [服务监控工具](https://github.com/louislam/uptime-kuma)
    - [umami: 类似google analytics的数据采集及分析工具，实现追踪页面来源，线索归因等](https://github.com/mikecao/umami)
+   - [excalidraw:手写风格画图工具](https://github.com/excalidraw/excalidraw)
    
 ###### 编辑器or方便的工具和插件
    - [让你只用键盘就能操作浏览器的神奇插件：vimium](https://github.com/philc/vimium)
